@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="21A5284e" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Config" representedClassName="Config" syncable="YES" codeGenerationType="class">
+        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="sizeMB" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="configs" inverseEntity="Printer"/>
+    </entity>
+    <entity name="Gcode" representedClassName="Gcode" syncable="YES" codeGenerationType="class">
+        <attribute name="estimatedTimeSec" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="filamentM" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="filamentMassG" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstLayerHeightMM" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="heightMM" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="initialBedTemp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="initialToolTemp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastPrinted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="layerHeight" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="printDurationSec" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sizeMB" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="slicer" optional="YES" attributeType="String"/>
+        <attribute name="slicerVersion" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="totalDurationSec" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="usedFilamentM" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="gcodes" inverseEntity="Printer"/>
+    </entity>
+    <entity name="Log" representedClassName="Log" syncable="YES" codeGenerationType="class">
+        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="logs" inverseEntity="Printer"/>
+    </entity>
+    <entity name="Macro" representedClassName="Macro" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="displayname" optional="YES" attributeType="String"/>
+        <attribute name="functiondescription" optional="YES" attributeType="String"/>
+        <attribute name="hidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="internalname" optional="YES" attributeType="String"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MacroGroup" inverseName="macro" inverseEntity="MacroGroup"/>
+    </entity>
+    <entity name="MacroGroup" representedClassName="MacroGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="macro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Macro" inverseName="group" inverseEntity="Macro"/>
+        <relationship name="printer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Printer" inverseName="macroGroups" inverseEntity="Printer"/>
+    </entity>
+    <entity name="Printer" representedClassName="Printer" syncable="YES" codeGenerationType="category">
+        <attribute name="authkey" optional="YES" attributeType="String"/>
+        <attribute name="hostname" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="port" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="configs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Config" inverseName="printer" inverseEntity="Config"/>
+        <relationship name="gcodes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gcode" inverseName="printer" inverseEntity="Gcode"/>
+        <relationship name="logs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="printer" inverseEntity="Log"/>
+        <relationship name="macroGroups" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MacroGroup" inverseName="printer" inverseEntity="MacroGroup"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Config" positionX="-36" positionY="9" width="128" height="119"/>
+        <element name="Gcode" positionX="-54" positionY="0" width="128" height="314"/>
+        <element name="Log" positionX="-18" positionY="27" width="128" height="104"/>
+        <element name="Macro" positionX="-63" positionY="-9" width="128" height="134"/>
+        <element name="MacroGroup" positionX="9" positionY="198" width="128" height="89"/>
+        <element name="Printer" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

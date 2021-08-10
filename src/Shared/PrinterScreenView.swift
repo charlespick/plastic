@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct PrinterScreenView: View {
-    var macros: [Macro] = [Macro( id: 1, name: "Start_Print"), Macro( id: 2, name: "Stop_Print")]
     var body: some View {
         NavigationView {
         }
@@ -18,7 +17,7 @@ struct PrinterScreenView: View {
 
 struct PrinterScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterScreenView(macros: [Macro( id: 1, name: "Start_Print"), Macro( id: 2, name: "Stop_Print")])
+        PrinterScreenView()
     }
 }
 
@@ -100,11 +99,6 @@ struct ControlBlock: View {
             }
             ScrollView {
                 HStack{
-                    ForEach(macros) { macro in
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Text(macro.name)
-                        }
-                    }
                 }
             }
         }

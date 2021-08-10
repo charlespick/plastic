@@ -19,8 +19,3 @@ struct PlasticApp: App {
         }
     }
 }
-
-struct Macro: Identifiable {
-    var id: Int
-    let name: String
-}

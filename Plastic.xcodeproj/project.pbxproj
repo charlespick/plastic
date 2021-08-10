@@ -31,6 +31,8 @@
 		4ED2F3F426795142002C0852 /* JobsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3F326795142002C0852 /* JobsScreenView.swift */; };
 		4ED2F3F526795142002C0852 /* JobsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3F326795142002C0852 /* JobsScreenView.swift */; };
 		4EF27AD726792C6F004B4CC0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4EF27AD626792C6F004B4CC0 /* Alamofire */; };
+		4EF6A63926B1FFDE00E720E0 /* Printer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6A63726B1FFDE00E720E0 /* Printer+CoreDataClass.swift */; };
+		4EF6A63A26B1FFDE00E720E0 /* Printer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6A63726B1FFDE00E720E0 /* Printer+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,7 @@
 		4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleScreenView.swift; sourceTree = "<group>"; };
 		4ED2F3F026795126002C0852 /* TuningScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningScreenView.swift; sourceTree = "<group>"; };
 		4ED2F3F326795142002C0852 /* JobsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsScreenView.swift; sourceTree = "<group>"; };
+		4EF6A63726B1FFDE00E720E0 /* Printer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Printer+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		4E0EBF75267874D9002BE169 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4EF6A63726B1FFDE00E720E0 /* Printer+CoreDataClass.swift */,
 				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
 				4E0EBF79267874D9002BE169 /* ContentView.swift */,
 				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
@@ -383,6 +387,7 @@
 				4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */,
 				4E0EBFA8267874DA002BE169 /* Persistence.swift in Sources */,
 				4E0EBFA2267874DA002BE169 /* Plastic.xcdatamodeld in Sources */,
+				4EF6A63926B1FFDE00E720E0 /* Printer+CoreDataClass.swift in Sources */,
 				4E0EBFA6267874DA002BE169 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +404,7 @@
 				4ED2F3EF2679510A002C0852 /* ConsoleScreenView.swift in Sources */,
 				4E0EBFA9267874DA002BE169 /* Persistence.swift in Sources */,
 				4E0EBFA3267874DA002BE169 /* Plastic.xcdatamodeld in Sources */,
+				4EF6A63A26B1FFDE00E720E0 /* Printer+CoreDataClass.swift in Sources */,
 				4E0EBFA7267874DA002BE169 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
