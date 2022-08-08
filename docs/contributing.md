@@ -11,7 +11,7 @@ standard to allow easy understanding of what is what.
 * Commits should each have a Signed-off-by line with your legal
 name and a functioning email address, which indicates you
 have read and agree to the [developer certificate of origin]()
-* At this time, make PRs against the `main` branch
+* At this time, make PRs against the `master` branch
 * Because often times a pull request brings in new features along with
 documentation, assets, and other diffs, it does not make sense to
 specifiy the module or relm a squashed commit would refer to.
