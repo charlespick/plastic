@@ -67,7 +67,11 @@
 		4E0EBF9B267874DA002BE169 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EBF9F267874DA002BE169 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		4E0EBFA1267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E3CA23C269C22930056FE0A /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
+		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
+		4E80961128A0E5A30040288B /* developer-certificate-of-origin */ = {isa = PBXFileReference; lastKnownFileType = text; name = "developer-certificate-of-origin"; path = "docs/developer-certificate-of-origin"; sourceTree = "<group>"; };
+		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
+		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
+		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4ED2F3E726795013002C0852 /* PrinterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterScreenView.swift; sourceTree = "<group>"; };
 		4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemScreenView.swift; sourceTree = "<group>"; };
 		4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleScreenView.swift; sourceTree = "<group>"; };
@@ -112,7 +116,7 @@
 		4E0EBF70267874D9002BE169 = {
 			isa = PBXGroup;
 			children = (
-				4E3CA23C269C22930056FE0A /* docs */,
+				4E80960F28A0E5600040288B /* docs */,
 				4E598BB92697AF4600261BE1 /* tests */,
 				4E598BB82697AF3700261BE1 /* src */,
 				4E0EBF81267874DA002BE169 /* Products */,
@@ -200,6 +204,18 @@
 				4E0EBF9E267874DA002BE169 /* Tests macOS */,
 			);
 			path = tests;
+			sourceTree = "<group>";
+		};
+		4E80960F28A0E5600040288B /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				4E80961428A0E5CC0040288B /* README.md */,
+				4E80961228A0E5A30040288B /* code_of_conduct.md */,
+				4E80961328A0E5A30040288B /* contributing.md */,
+				4E80961128A0E5A30040288B /* developer-certificate-of-origin */,
+				4E80961028A0E5A30040288B /* developing.md */,
+			);
+			name = docs;
 			sourceTree = "<group>";
 		};
 		4EF27AD326792C50004B4CC0 /* Frameworks */ = {
