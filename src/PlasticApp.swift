@@ -12,11 +12,12 @@ import SwiftUI
 struct PlasticApp: App {
     let persistenceController = PersistenceController.shared
     @State private var printers = Printer.sampleData
+    @State private var selectedPrinter = Printer.sampleData[1].id
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                PrintersView(printers: $printers)
+                PrintersView(printers: $printers, selectedPrinter: $selectedPrinter)
             }
         }
     }
