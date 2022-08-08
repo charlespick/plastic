@@ -27,7 +27,6 @@
 		4E0EBF7A267874D9002BE169 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4E0EBF7B267874DA002BE169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E0EBF83267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0EBF94267874DA002BE169 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0EBF9F267874DA002BE169 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
@@ -67,37 +66,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		4E0EBF75267874D9002BE169 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
-				4E0EBF79267874D9002BE169 /* ContentView.swift */,
-				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
-				4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */,
-				4ED2F3F026795126002C0852 /* TuningScreenView.swift */,
-				4ED2F3E726795013002C0852 /* PrinterScreenView.swift */,
-				4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */,
-				4E0EBF7A267874D9002BE169 /* Persistence.swift */,
-				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
-				4E0EBF76267874D9002BE169 /* Plastic.xcdatamodeld */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		4E0EBF81267874DA002BE169 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				4E0EBF80267874DA002BE169 /* Plastic.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4E0EBF82267874DA002BE169 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EBF83267874DA002BE169 /* Info.plist */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		4E0EBF93267874DA002BE169 /* Tests iOS */ = {
@@ -121,8 +95,16 @@
 		4E598BB82697AF3700261BE1 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EBF75267874D9002BE169 /* Shared */,
-				4E0EBF82267874DA002BE169 /* iOS */,
+				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
+				4E0EBF79267874D9002BE169 /* ContentView.swift */,
+				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
+				4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */,
+				4ED2F3F026795126002C0852 /* TuningScreenView.swift */,
+				4ED2F3E726795013002C0852 /* PrinterScreenView.swift */,
+				4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */,
+				4E0EBF7A267874D9002BE169 /* Persistence.swift */,
+				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
+				4E0EBF76267874D9002BE169 /* Plastic.xcdatamodeld */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -158,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E0EBF7F267874DA002BE169 /* Plastic (iOS) */ = {
+		4E0EBF7F267874DA002BE169 /* Plastic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic (iOS)" */;
+			buildConfigurationList = 4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic" */;
 			buildPhases = (
 				4E0EBF7C267874DA002BE169 /* Sources */,
 				4E0EBF7D267874DA002BE169 /* Frameworks */,
@@ -170,7 +152,7 @@
 			);
 			dependencies = (
 			);
-			name = "Plastic (iOS)";
+			name = Plastic;
 			packageProductDependencies = (
 				4E0EBFD82679166E002BE169 /* Alamofire */,
 			);
@@ -208,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E0EBF7F267874DA002BE169 /* Plastic (iOS) */,
+				4E0EBF7F267874DA002BE169 /* Plastic */,
 			);
 		};
 /* End PBXProject section */
@@ -361,14 +343,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = dev;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = src/iOS/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = dev;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.Plastic;
 				PRODUCT_NAME = Plastic;
 				SDKROOT = iphoneos;
@@ -383,14 +373,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = dev;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = src/iOS/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = dev;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.Plastic;
 				PRODUCT_NAME = Plastic;
 				SDKROOT = iphoneos;
@@ -412,7 +410,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic (iOS)" */ = {
+		4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E0EBFAF267874DA002BE169 /* Debug */,
