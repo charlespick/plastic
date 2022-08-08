@@ -11,11 +11,13 @@ import SwiftUI
 @main
 struct PlasticApp: App {
     let persistenceController = PersistenceController.shared
+    @State private var printers = Printer.sampleData
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                PrintersView(printers: $printers)
+            }
         }
     }
 }
