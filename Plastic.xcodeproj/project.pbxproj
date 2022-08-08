@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		4E0EBFA2267874DA002BE169 /* Plastic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF76267874D9002BE169 /* Plastic.xcdatamodeld */; };
 		4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF78267874D9002BE169 /* PlasticApp.swift */; };
-		4E0EBFA6267874DA002BE169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF79267874D9002BE169 /* ContentView.swift */; };
 		4E0EBFA8267874DA002BE169 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF7A267874D9002BE169 /* Persistence.swift */; };
 		4E0EBFAA267874DA002BE169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EBF7B267874DA002BE169 /* Assets.xcassets */; };
 		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
+		4E26944B28A16CE700BBC0AB /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944A28A16CE700BBC0AB /* Printer.swift */; };
+		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
 		4ED2F3E826795013002C0852 /* PrinterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3E726795013002C0852 /* PrinterScreenView.swift */; };
 		4ED2F3EB267950D0002C0852 /* SystemScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */; };
 		4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */; };
@@ -23,7 +24,6 @@
 /* Begin PBXFileReference section */
 		4E0EBF77267874D9002BE169 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		4E0EBF78267874D9002BE169 /* PlasticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticApp.swift; sourceTree = "<group>"; };
-		4E0EBF79267874D9002BE169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E0EBF7A267874D9002BE169 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4E0EBF7B267874DA002BE169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +31,8 @@
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0EBF9F267874DA002BE169 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		4E0EBFA1267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E26944A28A16CE700BBC0AB /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
 		4E80961128A0E5A30040288B /* developer-certificate-of-origin */ = {isa = PBXFileReference; lastKnownFileType = text; name = "developer-certificate-of-origin"; path = "docs/developer-certificate-of-origin"; sourceTree = "<group>"; };
 		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
@@ -92,11 +94,20 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		4E26944928A16CD300BBC0AB /* moonraker */ = {
+			isa = PBXGroup;
+			children = (
+				4E26944A28A16CE700BBC0AB /* Printer.swift */,
+			);
+			path = moonraker;
+			sourceTree = "<group>";
+		};
 		4E598BB82697AF3700261BE1 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
-				4E0EBF79267874D9002BE169 /* ContentView.swift */,
+				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
+				4E26944928A16CD300BBC0AB /* moonraker */,
 				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
 				4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */,
 				4ED2F3F026795126002C0852 /* TuningScreenView.swift */,
@@ -217,9 +228,10 @@
 				4ED2F3EB267950D0002C0852 /* SystemScreenView.swift in Sources */,
 				4ED2F3E826795013002C0852 /* PrinterScreenView.swift in Sources */,
 				4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */,
+				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
+				4E26944B28A16CE700BBC0AB /* Printer.swift in Sources */,
 				4E0EBFA8267874DA002BE169 /* Persistence.swift in Sources */,
 				4E0EBFA2267874DA002BE169 /* Plastic.xcdatamodeld in Sources */,
-				4E0EBFA6267874DA002BE169 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
