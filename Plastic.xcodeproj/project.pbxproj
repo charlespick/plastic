@@ -14,6 +14,7 @@
 		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
 		4E26944B28A16CE700BBC0AB /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944A28A16CE700BBC0AB /* Printer.swift */; };
 		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
+		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
 		4ED2F3E826795013002C0852 /* PrinterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3E726795013002C0852 /* PrinterScreenView.swift */; };
 		4ED2F3EB267950D0002C0852 /* SystemScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */; };
 		4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */; };
@@ -33,6 +34,7 @@
 		4E0EBFA1267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E26944A28A16CE700BBC0AB /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
+		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
 		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
 		4E80961128A0E5A30040288B /* developer-certificate-of-origin */ = {isa = PBXFileReference; lastKnownFileType = text; name = "developer-certificate-of-origin"; path = "docs/developer-certificate-of-origin"; sourceTree = "<group>"; };
 		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
 				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
+				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
 				4E26944928A16CD300BBC0AB /* moonraker */,
 				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
 				4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */,
@@ -232,6 +235,7 @@
 				4E26944B28A16CE700BBC0AB /* Printer.swift in Sources */,
 				4E0EBFA8267874DA002BE169 /* Persistence.swift in Sources */,
 				4E0EBFA2267874DA002BE169 /* Plastic.xcdatamodeld in Sources */,
+				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

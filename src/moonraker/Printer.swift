@@ -10,18 +10,39 @@ import Foundation
 struct Printer: Identifiable, Codable {
     let id: UUID
     var name: String
-    var url: URL
+    var url: String
     
-    init(id: UUID = UUID(), name: String, url: URL) {
+    init(id: UUID = UUID(), name: String, url: String) {
         self.id = id
         self.name = name
         self.url = url
+    }
+    
+    // These items support modifying and adding printers at runtime
+    struct ModifiedData {
+        var name: String = ""
+        var url: String = ""
+    }
+    
+    var modifiedData: ModifiedData {
+        ModifiedData(name: name, url: url)
+    }
+    
+    mutating func update(from data: ModifiedData) {
+        name = data.name
+        url = data.url
+    }
+    
+    init(data: ModifiedData) {
+        id = UUID()
+        name = data.name
+        url = data.url
     }
 }
 
 extension Printer {
     static let sampleData: [Printer] = [
-        Printer(name: "Voron", url: URL(string: "voron.makerland.xyz")!),
-        Printer(name: "CR10", url: URL(string: "192.168.200.5")!)
+        Printer(name: "Voron", url: "voron.makerland.xyz"),
+        Printer(name: "CR10", url: "192.168.200.5")
     ]
 }
