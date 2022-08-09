@@ -1,5 +1,5 @@
 # Plastic
-An iOS and macOS app for controlling Klipper-based 3d Printers using Moonraker
+An iOS app for controlling Klipper-based 3d Printers using Moonraker
 ## GIT ALERT
 The contents of the repository was recently squashed to comply with the
 new [community guidelines.](https://github.com/charlespick/plastic/community)
