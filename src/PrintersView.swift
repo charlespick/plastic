@@ -14,11 +14,14 @@ struct PrintersView: View {
     @State private var newPrinterData = PrinterConfig.ModifiedData()
     @Environment(\.scenePhase) private var scenePhase
     let saveCall: ()->Void
+    let selectAction: (_ printerID: UUID)->Void
     
     var body: some View {
         List{
             ForEach(printers) { printer in
-                PrinterCardView(printer: printer)
+                PrinterCardView(printer: printer, selectAction: { printerID in
+                    selectAction(printerID)
+                })
             }
         }
         .navigationTitle("Printers")
@@ -56,22 +59,26 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView(printers: .constant(PrinterConfig.sampleData), saveCall: {})
+            PrintersView(printers: .constant(PrinterConfig.sampleData), saveCall: {}, selectAction: { printerID in })
         }
     }
 }
 
 struct PrinterCardView: View {
     let printer: PrinterConfig
+    let selectAction: (_ printerID: UUID)->Void
+    
     var body: some View {
-        HStack{
-            if (printer.renderSelected) {
-                Image(systemName: "checkmark.circle.fill")
-            } else {
-                Image(systemName: "circle")
+        Button( action: {selectAction(printer.id)} ) {
+            HStack{
+                if (printer.renderSelected) {
+                    Image(systemName: "checkmark.circle.fill")
+                } else {
+                    Image(systemName: "circle")
+                }
+                
+                Text(printer.name)
             }
-            
-            Text(printer.name)
         }
     }
 }
