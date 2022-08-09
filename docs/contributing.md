@@ -47,7 +47,6 @@ All PRs are tested on a real Mac, iPhone, and iPad before being merged. The simu
 ```
 //
 //  File.ext
-//  File's platform delegation(s)
 //  File description
 //
 //  Copyright notice - most will follow the format shown below however
@@ -59,14 +58,13 @@ All PRs are tested on a real Mac, iPhone, and iPad before being merged. The simu
 For example the primary source file for the project begins with:
 ```
 //
-//  PlasticApp.swift
-//  Shared between iOS and macOS
-//  Head of the app
+//  Source.swift
+//  Master of the universe
 //
 //  This file may be distributed under the terms of the GNU GPLv3 license.
 //
 ```
-* Keep lines in source and docs to a reasonable length
+* Do not wrap code on the source files. Xcode does this for you in a much nicer way.
 * Use the [one true brace style](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS))
 * Document your work using the documentation specs [built into Swift](https://developer.apple.com/documentation/xcode/writing-symbol-documentation-in-your-source-files)
 * Don't do the trailing whitespace thing

@@ -1,8 +1,9 @@
 //
 //  PrinterEditView.swift
-//  Plastic
+//  An edit view for printerConfigs used to form new printer connections of
+//  edit existing ones
 //
-//  Created by Charles Pickering on 8/8/22.
+//  This file may be distributed under the terms of the GNU GPLv3 license.
 //
 
 import SwiftUI
