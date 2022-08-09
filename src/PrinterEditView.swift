@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PrinterEditView: View {
-    @Binding var data: Printer.ModifiedData
+    @Binding var data: PrinterConfig.ModifiedData
     @State private var urlString: String = ""
     
     var body: some View {
@@ -25,6 +25,6 @@ struct PrinterEditView: View {
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView(data: .constant(Printer.sampleData[0].modifiedData))
+        PrinterEditView(data: .constant(PrinterConfig.sampleData[0].modifiedData))
     }
 }
