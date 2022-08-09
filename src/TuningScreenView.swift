@@ -1,6 +1,5 @@
 //
 //  TuningScreenView.swift
-//  Shared between iOS and macOS
 //  Page of the main view that allows tuning of the printer
 //
 //  This file may be distributed under the terms of the GNU GPLv3 license.

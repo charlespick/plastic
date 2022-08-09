@@ -1,7 +1,6 @@
 //
 //  PlasticApp.swift
-//  Shared between iOS and macOS
-//  Head of the app
+//  App kernal and bearer of app state
 //
 //  This file may be distributed under the terms of the GNU GPLv3 license.
 //

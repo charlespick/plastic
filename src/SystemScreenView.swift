@@ -1,6 +1,5 @@
 //
 //  SystemScreenView.swift
-//  Shared between iOS and macOS
 //  Page of the main view for controlling system-level things related to klipper
 //
 //  This file may be distributed under the terms of the GNU GPLv3 license.
