@@ -26,8 +26,6 @@
 		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EBF94267874DA002BE169 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E0EBF9F267874DA002BE169 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		4E0EBFA1267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E26944A28A16CE700BBC0AB /* PrinterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterConfig.swift; sourceTree = "<group>"; };
 		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
@@ -83,15 +81,6 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		4E0EBF9E267874DA002BE169 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EBF9F267874DA002BE169 /* Tests_macOS.swift */,
-				4E0EBFA1267874DA002BE169 /* Info.plist */,
-			);
-			path = "Tests macOS";
-			sourceTree = "<group>";
-		};
 		4E26944928A16CD300BBC0AB /* moonraker */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0EBF93267874DA002BE169 /* Tests iOS */,
-				4E0EBF9E267874DA002BE169 /* Tests macOS */,
 			);
 			path = tests;
 			sourceTree = "<group>";

@@ -15,8 +15,7 @@ paired iPhone for testing. To get started:
 3. [Connect your iPhone](https://developer.apple.com/documentation/xcode/running-your-app-in-the-simulator-or-on-a-device)
 
 You can also test most parts of the iOS app in the
-simulator on a Mac and test core functionality using the macOS build of the app
-running natively. You can even build for iOS and run on an M1 powered Mac,
+simulator on a Mac. You can even build for iOS and run on an M1 powered Mac,
 although there are still some differences in how macOS and iOS handle things
 like networking privacy.
 
@@ -32,13 +31,5 @@ your own devices.
 ## Repository Layout
 All source files for the project are stored in the `src/` folder.
 
-* Inside, the `iOS/` and `macOS/` folders are dedicated to
-platform-specific files. They are not to be included in the build
-target of their non-respective platform.
-* `Shared/` contains files used by both platforms and thus are included
-in both targets. They are included in all build targets.
-
 `tests/` has test cases for CI and local testing. It isn't finished at
 this time.
-
-`helpers/` includes scripts for assistance with development.

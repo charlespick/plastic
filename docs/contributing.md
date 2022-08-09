@@ -1,5 +1,5 @@
 # Contributing to Plastic
-Plastic is an iOS and macOS app built using Swift and SwiftUI. It uses
+Plastic is an iOS app built using Swift and SwiftUI. It uses
 Moonraker to interface with your Klipper-based 3d-printer. As such,
 coding standards are similar to other projects in the Klipper universe
 
