@@ -56,7 +56,6 @@ class PrinterConfigStore: ObservableObject {
     
     private static func file() throws -> URL {
         try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("printers.dat")
-        
     }
     
     static func load(completion: @escaping (Result<[PrinterConfig], Error>)->Void) {

@@ -19,14 +19,12 @@ struct PrinterEditView: View {
                 TextField("Name", text: $data.name)
                 TextField("IP Address or DNS Name", text: $data.url)
             }
-            if (isInEditMode){
+            if (isInEditMode) {
                 Button("Delete Printer") {
                     deleteCall()
                 }
-                .buttonStyle(.automatic)
                 .foregroundColor(.red)
             }
-        }.onAppear {
         }
     }
 }
