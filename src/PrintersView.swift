@@ -24,6 +24,7 @@ struct PrintersView: View {
                     if (!isInEditMode){
                         selectAction(printerID)
                     } else {
+                        newPrinterData = printer.modifiedData
                         isPresentingEditSheet = true
                     }
                     
