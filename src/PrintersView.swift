@@ -10,10 +10,10 @@ import SwiftUI
 
 struct PrintersView: View {
     @Binding var printers: [PrinterConfig]
-    @State private var isPresentingEditSheet = false
-    @State private var isInEditMode = false
-    @State private var newPrinterData = PrinterConfig.ModifiedData()
-    @State private var printerBeingEdited = -1
+    @Binding var isPresentingEditSheet: Bool
+    @Binding  var isInEditMode: Bool
+    @Binding var newPrinterData: PrinterConfig.ModifiedData
+    @Binding var printerBeingEdited: Int
     @Environment(\.scenePhase) private var scenePhase
     let saveCall: ()->Void
     let selectAction: (_ printerID: UUID)->Void
@@ -47,9 +47,6 @@ struct PrintersView: View {
             }
             
         }
-        .sheet(isPresented: $isPresentingEditSheet) {
-            EditSheetView(newPrinterData: $newPrinterData, isInEditMode: $isInEditMode, isPresentingEditSheet: $isPresentingEditSheet, printerBeingEdited: $printerBeingEdited, printers: $printers)
-        }
         .onChange(of: scenePhase) { phase in
             if phase == .inactive { saveCall() }
         }
@@ -59,7 +56,7 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView(printers: .constant(PrinterConfig.sampleData), saveCall: {}, selectAction: { printerID in })
+            PrintersView(printers: .constant(PrinterConfig.sampleData), isPresentingEditSheet: .constant(false), isInEditMode: .constant(false), newPrinterData: .constant(PrinterConfig.ModifiedData()), printerBeingEdited: .constant(-1), saveCall: {}, selectAction: { printerID in })
         }
     }
 }
