@@ -11,6 +11,7 @@ import SwiftUI
 struct PrintersView: View {
     @Binding var printers: [PrinterConfig]
     @State private var isPresentingEditSheet = false
+    @State private var isInEditMode = false
     @State private var newPrinterData = PrinterConfig.ModifiedData()
     @Environment(\.scenePhase) private var scenePhase
     let saveCall: ()->Void
@@ -20,13 +21,31 @@ struct PrintersView: View {
         List{
             ForEach(printers) { printer in
                 PrinterCardView(printer: printer, selectAction: { printerID in
-                    selectAction(printerID)
-                })
+                    if (!isInEditMode){
+                        selectAction(printerID)
+                    } else {
+                        isPresentingEditSheet = true
+                    }
+                    
+                }, isInEditMode: isInEditMode)
             }
         }
         .navigationTitle("Printers")
         .toolbar() {
-            Button(action: { isPresentingEditSheet = true }) { Image(systemName: "plus") }
+            ToolbarItem(placement: .navigationBarLeading){
+                Button(action: { isInEditMode.toggle() }) {
+                    if (!isInEditMode){
+                        Text("Edit")
+                    } else {
+                        Text("Done")
+                            .fontWeight(.medium)
+                    }
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: { isPresentingEditSheet = true; isInEditMode = false }) { Image(systemName: "plus") }
+            }
+            
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             NavigationView {
@@ -47,7 +66,7 @@ struct PrintersView: View {
                             }
                         }
                 }
-                    .navigationTitle("Add Printer")
+                    .navigationTitle(isInEditMode ? "Edit Printer":"Add Printer")
             }
         }
         .onChange(of: scenePhase) { phase in
@@ -67,16 +86,18 @@ struct PrintersView_Previews: PreviewProvider {
 struct PrinterCardView: View {
     let printer: PrinterConfig
     let selectAction: (_ printerID: UUID)->Void
+    let isInEditMode: Bool
     
     var body: some View {
-        Button( action: {selectAction(printer.id)} ) {
+        Button( action: { selectAction(printer.id) } ) {
             HStack{
-                if (printer.renderSelected) {
-                    Image(systemName: "checkmark.circle.fill")
-                } else {
-                    Image(systemName: "circle")
+                if (!isInEditMode){
+                    if (printer.renderSelected) {
+                        Image(systemName: "checkmark.circle.fill")
+                    } else {
+                        Image(systemName: "circle")
+                    }
                 }
-                
                 Text(printer.name)
             }
         }
