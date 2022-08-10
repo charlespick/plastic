@@ -13,26 +13,28 @@ struct PlasticApp: App {
     @StateObject private var store = PrinterConfigStore()
     @State private var selectedPrinterIndex: Int = -1
     
+    func selectAction(uuid: UUID) {
+        if (selectedPrinterIndex != -1) {
+            store.configuredPrinters[selectedPrinterIndex].renderSelected = false
+        }
+        for (index, printer) in store.configuredPrinters.enumerated() {
+            if (printer.id == uuid) {
+                store.configuredPrinters[index].renderSelected = true
+                selectedPrinterIndex = index
+                return
+            }
+        }
+    }
+    
+    func saveCall() {
+        PrinterConfigStore.save(printerConfigs: store.configuredPrinters) { result in
+            if case .failure(let error) = result { fatalError(error.localizedDescription) }
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                PrintersView(printers: $store.configuredPrinters) {
-                    PrinterConfigStore.save(printerConfigs: store.configuredPrinters) { result in
-                        if case .failure(let error) = result { fatalError(error.localizedDescription) }
-                    }
-                } selectAction: { uuid in
-                    if (selectedPrinterIndex != -1) {
-                        store.configuredPrinters[selectedPrinterIndex].renderSelected = false
-                    }
-                    for (index, printer) in store.configuredPrinters.enumerated() {
-                        if (printer.id == uuid) {
-                            store.configuredPrinters[index].renderSelected = true
-                            selectedPrinterIndex = index
-                            return
-                        }
-                    }
-                }
-            }
+            MainView(printers: $store.configuredPrinters, saveCallForPrinters: saveCall, selectActionForPrinters: selectAction(uuid:))
             .onAppear {
                 PrinterConfigStore.load { result in
                     switch result {
@@ -51,9 +53,4 @@ struct PlasticApp: App {
             }
         }
     }
-}
-
-struct Macro: Identifiable {
-    var id: Int
-    let name: String
 }

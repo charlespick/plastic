@@ -13,11 +13,7 @@
 		4E26944B28A16CE700BBC0AB /* PrinterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944A28A16CE700BBC0AB /* PrinterConfig.swift */; };
 		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
 		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
-		4ED2F3E826795013002C0852 /* PrinterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3E726795013002C0852 /* PrinterScreenView.swift */; };
-		4ED2F3EB267950D0002C0852 /* SystemScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */; };
-		4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */; };
-		4ED2F3F126795126002C0852 /* TuningScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3F026795126002C0852 /* TuningScreenView.swift */; };
-		4ED2F3F426795142002C0852 /* JobsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2F3F326795142002C0852 /* JobsScreenView.swift */; };
+		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +30,7 @@
 		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
 		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
 		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4ED2F3E726795013002C0852 /* PrinterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterScreenView.swift; sourceTree = "<group>"; };
-		4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemScreenView.swift; sourceTree = "<group>"; };
-		4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleScreenView.swift; sourceTree = "<group>"; };
-		4ED2F3F026795126002C0852 /* TuningScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningScreenView.swift; sourceTree = "<group>"; };
-		4ED2F3F326795142002C0852 /* JobsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsScreenView.swift; sourceTree = "<group>"; };
+		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +88,8 @@
 				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
 				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
 				4E26944928A16CD300BBC0AB /* moonraker */,
-				4ED2F3F326795142002C0852 /* JobsScreenView.swift */,
-				4ED2F3ED2679510A002C0852 /* ConsoleScreenView.swift */,
-				4ED2F3F026795126002C0852 /* TuningScreenView.swift */,
-				4ED2F3E726795013002C0852 /* PrinterScreenView.swift */,
-				4ED2F3EA267950D0002C0852 /* SystemScreenView.swift */,
 				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
+				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -208,11 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
-				4ED2F3F426795142002C0852 /* JobsScreenView.swift in Sources */,
-				4ED2F3F126795126002C0852 /* TuningScreenView.swift in Sources */,
-				4ED2F3EB267950D0002C0852 /* SystemScreenView.swift in Sources */,
-				4ED2F3E826795013002C0852 /* PrinterScreenView.swift in Sources */,
-				4ED2F3EE2679510A002C0852 /* ConsoleScreenView.swift in Sources */,
+				4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */,
 				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
 				4E26944B28A16CE700BBC0AB /* PrinterConfig.swift in Sources */,
 				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
