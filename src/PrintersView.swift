@@ -13,18 +13,20 @@ struct PrintersView: View {
     @State private var isPresentingEditSheet = false
     @State private var isInEditMode = false
     @State private var newPrinterData = PrinterConfig.ModifiedData()
+    @State private var printerBeingEdited = -1
     @Environment(\.scenePhase) private var scenePhase
     let saveCall: ()->Void
     let selectAction: (_ printerID: UUID)->Void
     
     var body: some View {
         List{
-            ForEach(printers) { printer in
+            ForEach(Array(printers.enumerated()), id: \.element) { index, printer in
                 PrinterCardView(printer: printer, selectAction: { printerID in
                     if (!isInEditMode){
                         selectAction(printerID)
                     } else {
                         newPrinterData = printer.modifiedData
+                        printerBeingEdited = index
                         isPresentingEditSheet = true
                     }
                     
@@ -35,40 +37,18 @@ struct PrintersView: View {
         .toolbar() {
             ToolbarItem(placement: .navigationBarLeading){
                 Button(action: { isInEditMode.toggle() }) {
-                    if (!isInEditMode){
-                        Text("Edit")
-                    } else {
-                        Text("Done")
-                            .fontWeight(.medium)
-                    }
-                }
+                    if (!isInEditMode){ Text("Edit") } else { Text("Done").fontWeight(.medium) } }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { isPresentingEditSheet = true; isInEditMode = false }) { Image(systemName: "plus") }
+                Button(action: {
+                    newPrinterData = PrinterConfig.ModifiedData()
+                    isPresentingEditSheet = true
+                    isInEditMode = false }) { Image(systemName: "plus") }
             }
             
         }
         .sheet(isPresented: $isPresentingEditSheet) {
-            NavigationView {
-                PrinterEditView(data: $newPrinterData)
-                    .toolbar() {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isPresentingEditSheet = false
-                                newPrinterData = PrinterConfig.ModifiedData()
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Save") {
-                                isPresentingEditSheet = false
-                                let newPrinter = PrinterConfig(data: newPrinterData)
-                                printers.append(newPrinter)
-                                newPrinterData = PrinterConfig.ModifiedData()
-                            }
-                        }
-                }
-                    .navigationTitle(isInEditMode ? "Edit Printer":"Add Printer")
-            }
+            EditSheetView(newPrinterData: $newPrinterData, isInEditMode: $isInEditMode, isPresentingEditSheet: $isPresentingEditSheet, printerBeingEdited: $printerBeingEdited, printers: $printers)
         }
         .onChange(of: scenePhase) { phase in
             if phase == .inactive { saveCall() }
@@ -101,6 +81,51 @@ struct PrinterCardView: View {
                 }
                 Text(printer.name)
             }
+        }
+    }
+}
+
+struct EditSheetView: View {
+    @Binding var newPrinterData: PrinterConfig.ModifiedData
+    @Binding var isInEditMode: Bool
+    @Binding var isPresentingEditSheet: Bool
+    @Binding var printerBeingEdited: Int
+    @Binding var printers: [PrinterConfig]
+
+    var body: some View {
+        NavigationView {
+            PrinterEditView(data: $newPrinterData, isInEditMode: $isInEditMode, deleteCall: {
+                printers.remove(at: printerBeingEdited)
+                isPresentingEditSheet = false
+            })
+            .toolbar() {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        isPresentingEditSheet = false
+                        newPrinterData = PrinterConfig.ModifiedData()
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        if (newPrinterData.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                            
+                            return
+                        }
+                        
+                        isPresentingEditSheet = false
+                        if (isInEditMode){
+                            printers.remove(at: printerBeingEdited)
+                            printers.insert(PrinterConfig(data: newPrinterData), at: printerBeingEdited)
+                            isInEditMode = false
+                        } else {
+                            printers.append(PrinterConfig(data: newPrinterData))
+                            newPrinterData = PrinterConfig.ModifiedData()
+                        }
+                        
+                    }
+                }
+            }
+            .navigationTitle(isInEditMode ? "Edit Printer":"Add Printer")
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PrinterConfig: Identifiable, Codable {
+struct PrinterConfig: Identifiable, Codable, Hashable {
     let id: UUID
     var name: String
     var url: String
