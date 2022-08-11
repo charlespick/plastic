@@ -9,46 +9,31 @@
 import SwiftUI
 
 struct PrintersView: View {
-    @Binding var printers: [PrinterConfig]
     @Binding var isPresentingEditSheet: Bool
     @Binding  var isInEditMode: Bool
-    @Binding var newPrinterData: PrinterConfig.ModifiedData
-    @Binding var printerBeingEdited: Int
+    @Binding var newPrinterData: Printer.ModifiedData
     @Environment(\.scenePhase) private var scenePhase
-    let saveCall: ()->Void
-    let selectAction: (_ printerID: UUID)->Void
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
-        List{
-            ForEach(Array(printers.enumerated()), id: \.element) { index, printer in
-                PrinterCardView(printer: printer, selectAction: { printerID in
-                    if (!isInEditMode){
-                        selectAction(printerID)
-                    } else {
-                        newPrinterData = printer.modifiedData
-                        printerBeingEdited = index
-                        isPresentingEditSheet = true
-                    }
-                    
-                }, isInEditMode: isInEditMode)
-            }
+        List {
+            ForEach(Array(env.configuredPrinters.enumerated()), id: \.element) { index, printer in
+                PrinterCardView(printer: printer, isInEditMode: isInEditMode) }
         }
         .navigationTitle("Printers")
         .toolbar() {
             ToolbarItem(placement: .navigationBarLeading){
-                Button(action: { isInEditMode.toggle() }) {
-                    if (!isInEditMode){ Text("Edit") } else { Text("Done").fontWeight(.medium) } }
-            }
+                Button(action: { isInEditMode.toggle() }) { if (!isInEditMode){ Text("Edit") } else { Text("Done").fontWeight(.medium) } } }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    newPrinterData = PrinterConfig.ModifiedData()
+                    newPrinterData = Printer.ModifiedData()
                     isPresentingEditSheet = true
                     isInEditMode = false }) { Image(systemName: "plus") }
             }
             
         }
         .onChange(of: scenePhase) { phase in
-            if phase == .inactive { saveCall() }
+            if phase == .inactive { env.save() }
         }
     }
 }
@@ -56,21 +41,25 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView(printers: .constant(PrinterConfig.sampleData), isPresentingEditSheet: .constant(false), isInEditMode: .constant(false), newPrinterData: .constant(PrinterConfig.ModifiedData()), printerBeingEdited: .constant(-1), saveCall: {}, selectAction: { printerID in })
+            PrintersView(isPresentingEditSheet: .constant(false), isInEditMode: .constant(false), newPrinterData: .constant(Printer.ModifiedData()))
         }
     }
 }
 
 struct PrinterCardView: View {
-    let printer: PrinterConfig
-    let selectAction: (_ printerID: UUID)->Void
+    let printer: Printer
     let isInEditMode: Bool
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
-        Button( action: { selectAction(printer.id) } ) {
+        Button( action: {
+            if (isInEditMode) {
+                env.printerBeingEdited = printer
+            } else {
+                env.selectedPrinter = printer }}){
             HStack{
                 if (!isInEditMode){
-                    if (printer.renderSelected) {
+                    if (printer == env.selectedPrinter) {
                         Image(systemName: "checkmark.circle.fill")
                     } else {
                         Image(systemName: "circle")

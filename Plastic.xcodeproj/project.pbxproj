@@ -10,11 +10,11 @@
 		4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF78267874D9002BE169 /* PlasticApp.swift */; };
 		4E0EBFAA267874DA002BE169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EBF7B267874DA002BE169 /* Assets.xcassets */; };
 		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
-		4E26944B28A16CE700BBC0AB /* PrinterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944A28A16CE700BBC0AB /* PrinterConfig.swift */; };
 		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
 		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
 		4E42235028A4BD85003FCD58 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42234F28A4BD85003FCD58 /* DashboardView.swift */; };
-		4E42235228A4BEAD003FCD58 /* PrinterConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235128A4BEAD003FCD58 /* PrinterConnection.swift */; };
+		4E42235428A57E2A003FCD58 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235328A57E2A003FCD58 /* Printer.swift */; };
+		4E42235928A5847C003FCD58 /* PrinterEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235828A5847C003FCD58 /* PrinterEnv.swift */; };
 		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,11 +24,11 @@
 		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EBF94267874DA002BE169 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E26944A28A16CE700BBC0AB /* PrinterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterConfig.swift; sourceTree = "<group>"; };
 		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
 		4E42234F28A4BD85003FCD58 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		4E42235128A4BEAD003FCD58 /* PrinterConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterConnection.swift; sourceTree = "<group>"; };
+		4E42235328A57E2A003FCD58 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		4E42235828A5847C003FCD58 /* PrinterEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEnv.swift; sourceTree = "<group>"; };
 		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
 		4E80961128A0E5A30040288B /* developer-certificate-of-origin */ = {isa = PBXFileReference; lastKnownFileType = text; name = "developer-certificate-of-origin"; path = "docs/developer-certificate-of-origin"; sourceTree = "<group>"; };
 		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
@@ -80,8 +80,7 @@
 		4E26944928A16CD300BBC0AB /* moonraker */ = {
 			isa = PBXGroup;
 			children = (
-				4E26944A28A16CE700BBC0AB /* PrinterConfig.swift */,
-				4E42235128A4BEAD003FCD58 /* PrinterConnection.swift */,
+				4E42235328A57E2A003FCD58 /* Printer.swift */,
 			);
 			path = moonraker;
 			sourceTree = "<group>";
@@ -96,6 +95,7 @@
 				4E26944928A16CD300BBC0AB /* moonraker */,
 				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
 				4E42234F28A4BD85003FCD58 /* DashboardView.swift */,
+				4E42235828A5847C003FCD58 /* PrinterEnv.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -202,11 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
-				4E42235228A4BEAD003FCD58 /* PrinterConnection.swift in Sources */,
+				4E42235928A5847C003FCD58 /* PrinterEnv.swift in Sources */,
 				4E42235028A4BD85003FCD58 /* DashboardView.swift in Sources */,
 				4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */,
+				4E42235428A57E2A003FCD58 /* Printer.swift in Sources */,
 				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
-				4E26944B28A16CE700BBC0AB /* PrinterConfig.swift in Sources */,
 				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

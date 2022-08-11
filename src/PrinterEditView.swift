@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct PrinterEditView: View {
-    @Binding var data: PrinterConfig.ModifiedData
+    @Binding var data: Printer.ModifiedData
     @Binding var isInEditMode: Bool
-    let deleteCall: ()->Void
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         Form {
@@ -21,7 +21,7 @@ struct PrinterEditView: View {
             }
             if (isInEditMode) {
                 Button("Delete Printer") {
-                    deleteCall()
+                    //TODO: delete printer
                 }
                 .foregroundColor(.red)
             }
@@ -31,6 +31,6 @@ struct PrinterEditView: View {
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView(data: .constant(PrinterConfig.sampleData[0].modifiedData), isInEditMode: .constant(true), deleteCall: {})
+        PrinterEditView(data: .constant(Printer.ModifiedData(name: "Voron", url: "url")), isInEditMode: .constant(true))
     }
 }
