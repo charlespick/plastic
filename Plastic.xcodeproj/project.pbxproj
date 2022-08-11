@@ -324,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = dev;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -339,7 +339,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = dev;
-				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.Plastic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.plastic;
 				PRODUCT_NAME = Plastic;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -354,7 +354,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = dev;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -369,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = dev;
-				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.Plastic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.plastic;
 				PRODUCT_NAME = Plastic;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
