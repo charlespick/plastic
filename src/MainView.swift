@@ -51,6 +51,9 @@ struct EditSheetView: View {
             PrinterEditView(data: $newPrinterData, isInEditMode: $isInEditMode, deleteCall: {
                 printers.remove(at: printerBeingEdited)
                 isPresentingEditSheet = false
+                //TODO: deal with selection pointer when array updates
+                //if it was selected, change selection to -1 and destroy the connection
+                //if it was not selected, update the index to point to the new index for the selected printer
             })
             .toolbar() {
                 ToolbarItem(placement: .cancellationAction) {

@@ -24,7 +24,6 @@ struct PlasticApp: App {
                 selectedPrinterIndex = index
                 self.printer.setupConnection(name: printer.name)            }
         }
-        
     }
     
     func saveCall() {
