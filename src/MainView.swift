@@ -13,6 +13,8 @@ struct MainView: View {
     @State private var isInEditMode = false
     @State private var printerBeingEdited = -1
     
+    @ObservedObject var printer: PrinterConnection
+    
     @Binding var printers: [PrinterConfig]
     
     let saveCallForPrinters: ()->Void
@@ -20,6 +22,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
+            DashboardView(printer: printer).tabItem { Label("Dashboard", systemImage: "speedometer") }
             NavigationView {
                 PrintersView(printers: $printers, isPresentingEditSheet: $isPresentingEditSheet, isInEditMode: $isInEditMode, newPrinterData: $newPrinterData, printerBeingEdited: $printerBeingEdited, saveCall: saveCallForPrinters, selectAction: selectActionForPrinters)
             }.tabItem { Label("Printers", systemImage: "printer") }
@@ -32,7 +35,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(printers: .constant(PrinterConfig.sampleData), saveCallForPrinters: {}, selectActionForPrinters: {_ in })
+        MainView(printer: PrinterConnection(), printers: .constant(PrinterConfig.sampleData), saveCallForPrinters: {}, selectActionForPrinters: {_ in })
     }
 }
 
@@ -48,6 +51,9 @@ struct EditSheetView: View {
             PrinterEditView(data: $newPrinterData, isInEditMode: $isInEditMode, deleteCall: {
                 printers.remove(at: printerBeingEdited)
                 isPresentingEditSheet = false
+                //TODO: deal with selection pointer when array updates
+                //if it was selected, change selection to -1 and destroy the connection
+                //if it was not selected, update the index to point to the new index for the selected printer
             })
             .toolbar() {
                 ToolbarItem(placement: .cancellationAction) {

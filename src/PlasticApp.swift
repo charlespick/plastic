@@ -11,6 +11,7 @@ import CoreData
 @main
 struct PlasticApp: App {
     @StateObject private var store = PrinterConfigStore()
+    @StateObject private var printer = PrinterConnection()
     @State private var selectedPrinterIndex: Int = -1
     
     func selectAction(uuid: UUID) {
@@ -21,8 +22,7 @@ struct PlasticApp: App {
             if (printer.id == uuid) {
                 store.configuredPrinters[index].renderSelected = true
                 selectedPrinterIndex = index
-                return
-            }
+                self.printer.setupConnection(name: printer.name)            }
         }
     }
     
@@ -34,7 +34,7 @@ struct PlasticApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(printers: $store.configuredPrinters, saveCallForPrinters: saveCall, selectActionForPrinters: selectAction(uuid:))
+            MainView(printer: printer, printers: $store.configuredPrinters, saveCallForPrinters: saveCall, selectActionForPrinters: selectAction(uuid:))
             .onAppear {
                 PrinterConfigStore.load { result in
                     switch result {
