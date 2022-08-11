@@ -7,14 +7,16 @@
 
 import Foundation
 
-class PrinterConnection: ObservableObject {
-    public let configuredName: String
-    @Published public var alive: Bool
+class PrinterConnection: ObservableObject{
+    @Published var configuredName = "No Printer Selected"
+    @Published public var alive = false
     
-    init(name: String, alive: Bool) {
+    func setupConnection(name: String){
         configuredName = name
-        self.alive = alive
-        
     }
     
+    func killConnection(){
+        configuredName = "No Printer Selected"
+        alive = false
+    }
 }

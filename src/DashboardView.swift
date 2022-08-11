@@ -17,6 +17,6 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView(printer: PrinterConnection(name: "Voron", alive: true))
+        DashboardView(printer: PrinterConnection())
     }
 }

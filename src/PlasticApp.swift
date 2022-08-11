@@ -11,8 +11,8 @@ import CoreData
 @main
 struct PlasticApp: App {
     @StateObject private var store = PrinterConfigStore()
+    @StateObject private var printer = PrinterConnection()
     @State private var selectedPrinterIndex: Int = -1
-    @StateObject private var printer = PrinterConnection(name: "No Printer Selected", alive: false)
     
     func selectAction(uuid: UUID) {
         if (selectedPrinterIndex != -1) {
@@ -22,9 +22,9 @@ struct PlasticApp: App {
             if (printer.id == uuid) {
                 store.configuredPrinters[index].renderSelected = true
                 selectedPrinterIndex = index
-                return
-            }
+                self.printer.setupConnection(name: printer.name)            }
         }
+        
     }
     
     func saveCall() {

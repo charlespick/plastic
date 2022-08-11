@@ -35,7 +35,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(printer: PrinterConnection(name: "Voron", alive: true), printers: .constant(PrinterConfig.sampleData), saveCallForPrinters: {}, selectActionForPrinters: {_ in })
+        MainView(printer: PrinterConnection(), printers: .constant(PrinterConfig.sampleData), saveCallForPrinters: {}, selectActionForPrinters: {_ in })
     }
 }
 
