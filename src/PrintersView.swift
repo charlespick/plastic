@@ -9,28 +9,33 @@
 import SwiftUI
 
 struct PrintersView: View {
-    @Binding var isPresentingEditSheet: Bool
-    @Binding  var isInEditMode: Bool
-    @Binding var newPrinterData: Printer.ModifiedData
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         List {
-            ForEach(Array(env.configuredPrinters.enumerated()), id: \.element) { index, printer in
-                PrinterCardView(printer: printer, isInEditMode: isInEditMode) }
+            ForEach(env.configuredPrinters) { printer in
+                PrinterCardView(printer: printer)
+            }
         }
         .navigationTitle("Printers")
         .toolbar() {
             ToolbarItem(placement: .navigationBarLeading){
-                Button(action: { isInEditMode.toggle() }) { if (!isInEditMode){ Text("Edit") } else { Text("Done").fontWeight(.medium) } } }
+                Button(action: {
+                    env.isInEditMode.toggle()
+                }) { if (!env.isInEditMode) {
+                        Text("Edit")
+                    } else {
+                        Text("Done").fontWeight(.medium)
+                    }
+                }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    newPrinterData = Printer.ModifiedData()
-                    isPresentingEditSheet = true
-                    isInEditMode = false }) { Image(systemName: "plus") }
+                    env.tempData = Printer.ModifiedData()
+                    env.isPresentingEditSheet = true
+                    env.isInEditMode = false }) { Image(systemName: "plus") }
             }
-            
         }
         .onChange(of: scenePhase) { phase in
             if phase == .inactive { env.save() }
@@ -41,25 +46,28 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView(isPresentingEditSheet: .constant(false), isInEditMode: .constant(false), newPrinterData: .constant(Printer.ModifiedData()))
+            PrintersView()
         }
     }
 }
 
 struct PrinterCardView: View {
     let printer: Printer
-    let isInEditMode: Bool
     @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         Button( action: {
-            if (isInEditMode) {
+            if (env.isInEditMode) {
                 env.printerBeingEdited = printer
+                env.tempData = env.printerBeingEdited?.modifiedData ?? Printer.ModifiedData(name: "Error", url: "Error")
+                env.isPresentingEditSheet = true
             } else {
-                env.selectedPrinter = printer }}){
+                env.selectedPrinter = printer   
+            }})
+        {
             HStack{
-                if (!isInEditMode){
-                    if (printer == env.selectedPrinter) {
+                if (!env.isInEditMode){
+                    if (printer == env.selectedPrinter ?? Printer(name: "not a printer", url: "invalidURL")) {
                         Image(systemName: "checkmark.circle.fill")
                     } else {
                         Image(systemName: "circle")

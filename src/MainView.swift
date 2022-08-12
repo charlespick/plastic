@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var isPresentingEditSheet = false
-    @State private var newPrinterData = Printer.ModifiedData()
     @State private var isInEditMode = false
     @EnvironmentObject var env: PrinterEnv
     
@@ -18,10 +16,10 @@ struct MainView: View {
             DashboardView()
                 .tabItem { Label("Dashboard", systemImage: "speedometer") }
             NavigationView {
-                PrintersView(isPresentingEditSheet: $isPresentingEditSheet, isInEditMode: $isInEditMode, newPrinterData: $newPrinterData)
+                PrintersView()
             }.tabItem { Label("Printers", systemImage: "printer") }
-            .sheet(isPresented: $isPresentingEditSheet) {
-                EditSheetView(newPrinterData: $newPrinterData, isInEditMode: $isInEditMode, isPresentingEditSheet: $isPresentingEditSheet)
+                .sheet(isPresented: $env.isPresentingEditSheet) {
+                EditSheetView()
             }
         }
     }
@@ -34,41 +32,37 @@ struct MainView_Previews: PreviewProvider {
 }
 
 struct EditSheetView: View {
-    @Binding var newPrinterData: Printer.ModifiedData
-    @Binding var isInEditMode: Bool
-    @Binding var isPresentingEditSheet: Bool
     @EnvironmentObject var env: PrinterEnv
 
     var body: some View {
         NavigationView {
-            PrinterEditView(data: $newPrinterData, isInEditMode: $isInEditMode)
+            PrinterEditView()
             .toolbar() {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        isPresentingEditSheet = false
-                        newPrinterData = Printer.ModifiedData()
+                        env.isPresentingEditSheet = false
+                        env.tempData = Printer.ModifiedData()
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        if (newPrinterData.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                        if (env.tempData.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
                             
                             return
                         }
-                        
-                        isPresentingEditSheet = false
-                        if (isInEditMode){
-                            env.printerBeingEdited = Printer(data: newPrinterData)
-                            isInEditMode = false
+                        env.isPresentingEditSheet = false
+                        if (env.isInEditMode){
+                            env.printerBeingEdited = Printer(data: env.tempData)
+                            env.isInEditMode = false
                         } else {
-                            env.configuredPrinters.append(Printer(data: newPrinterData))
-                            newPrinterData = Printer.ModifiedData()
+                            env.configuredPrinters.append(Printer(data: env.tempData))
+                            env.tempData = Printer.ModifiedData()
                         }
                         
                     }
                 }
             }
-            .navigationTitle(isInEditMode ? "Edit Printer":"Add Printer")
+            .navigationTitle(env.isInEditMode ? "Edit Printer":"Add Printer")
         }
     }
 }

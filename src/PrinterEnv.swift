@@ -11,13 +11,15 @@ class PrinterEnv: ObservableObject {
     @Published var configuredPrinters: [Printer] = []
     @Published var selectedPrinter: Printer?
     @Published var printerBeingEdited: Printer?
+    @Published var isPresentingEditSheet = false
+    @Published var isInEditMode = false
+    @Published var tempData = Printer.ModifiedData()
     
     init() {
         configuredPrinters.append(contentsOf: [Printer(name: "Voron", url: ""),
                                                Printer(name: "CR10", url: ""),
                                                Printer(name: "Delta", url: "")])
         selectedPrinter = configuredPrinters.first
-        
     }
     
     private func file() throws -> URL {
@@ -32,8 +34,8 @@ class PrinterEnv: ObservableObject {
                     DispatchQueue.main.async {}
                     return
                 }
-                let configuredPrinters = try JSONDecoder().decode([Printer].self, from: file.availableData)
                 DispatchQueue.main.async {}
+                configuredPrinters = try JSONDecoder().decode([Printer].self, from: file.availableData) //read stuff and set it to the configured printers
             } catch {
                 DispatchQueue.main.async {}
             }
