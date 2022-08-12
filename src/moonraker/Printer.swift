@@ -7,13 +7,9 @@
 
 import Foundation
 
-class Printer: Identifiable, ObservableObject, Codable, Hashable {
+class Printer: Identifiable, ObservableObject, Codable {
     static func == (lhs: Printer, rhs: Printer) -> Bool {
         return(lhs === rhs)
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
     }
     
     @Published var name: String
