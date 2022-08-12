@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @ObservedObject var printer: PrinterConnection
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
-        Text(printer.configuredName)
+        Text(env.selectedPrinter?.name ?? "No Printer Selected")
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView(printer: PrinterConnection())
+        DashboardView()
     }
 }

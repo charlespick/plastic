@@ -9,19 +9,21 @@
 import SwiftUI
 
 struct PrinterEditView: View {
-    @Binding var data: PrinterConfig.ModifiedData
-    @Binding var isInEditMode: Bool
-    let deleteCall: ()->Void
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         Form {
             Section(header: Text("Printer Information"), footer: Text("iOS does not support Bonjour. You cannot use hostname.local here.")) {
-                TextField("Name", text: $data.name)
-                TextField("IP Address or DNS Name", text: $data.url)
+                TextField("Name", text: $env.tempData.name)
+                TextField("IP Address or DNS Name", text: $env.tempData.url)
             }
-            if (isInEditMode) {
+            if (env.isInEditMode) {
                 Button("Delete Printer") {
-                    deleteCall()
+                    for (index, printer) in env.configuredPrinters.enumerated() {
+                            if (printer === env.printerBeingEdited){
+                            env.configuredPrinters.remove(at: index)
+                        }
+                    }
                 }
                 .foregroundColor(.red)
             }
@@ -31,6 +33,6 @@ struct PrinterEditView: View {
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView(data: .constant(PrinterConfig.sampleData[0].modifiedData), isInEditMode: .constant(true), deleteCall: {})
+        PrinterEditView()
     }
 }
