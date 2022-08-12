@@ -26,20 +26,12 @@ class PrinterEnv: ObservableObject {
         try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("printers.dat")
     }
     
-    func load() {
-        DispatchQueue.global(qos: .background).async { [self] in
-            do {
-                let fileURL = try file()
-                guard let file = try? FileHandle(forReadingFrom: fileURL) else {
-                    DispatchQueue.main.async {}
-                    return
-                }
-                DispatchQueue.main.async {}
-                configuredPrinters = try JSONDecoder().decode([Printer].self, from: file.availableData) //read stuff and set it to the configured printers
-            } catch {
-                DispatchQueue.main.async {}
-            }
+    func load() async throws {
+        let fileURL = try file()
+        guard let file = try? FileHandle(forReadingFrom: fileURL) else {
+            return
         }
+        configuredPrinters = try JSONDecoder().decode([Printer].self, from: file.availableData)
     }
     
     func save() {

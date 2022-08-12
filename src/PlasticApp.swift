@@ -16,7 +16,9 @@ struct PlasticApp: App {
         WindowGroup {
             MainView()
             .onAppear {
-                env.load()
+                Task {
+                    try await env.load()
+                }
             }
             .environmentObject(env)
         }
