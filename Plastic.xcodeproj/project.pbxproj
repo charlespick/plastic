@@ -35,6 +35,7 @@
 		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
 		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4EE5C03428A82675006AD343 /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 				4E80961328A0E5A30040288B /* contributing.md */,
 				4E80961128A0E5A30040288B /* developer-certificate-of-origin */,
 				4E80961028A0E5A30040288B /* developing.md */,
+				4EE5C03428A82675006AD343 /* Features.md */,
 			);
 			name = docs;
 			sourceTree = "<group>";
