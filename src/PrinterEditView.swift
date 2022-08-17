@@ -27,12 +27,14 @@ struct PrinterEditView: View {
                 }
                 .foregroundColor(.red)
             }
+                    env.isPresentingEditSheet = false
+                }            }
         }
     }
 }
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView()
+        PrinterEditView().environmentObject(PrinterEnv())
     }
 }
