@@ -46,7 +46,7 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView()
+            PrintersView().environmentObject(PrinterEnv())
         }
     }
 }
