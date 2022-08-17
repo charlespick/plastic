@@ -16,9 +16,7 @@ class PrinterEnv: ObservableObject {
     @Published var tempData = Printer.ModifiedData()
     
     init() {
-        configuredPrinters.append(contentsOf: [Printer(name: "Voron", url: ""),
-                                               Printer(name: "CR10", url: ""),
-                                               Printer(name: "Delta", url: "")])
+        configuredPrinters.append(contentsOf: [Printer(name: "Voron", url: ""), Printer(name: "CR10", url: ""), Printer(name: "Delta", url: "")])
         selectedPrinter = configuredPrinters.first
     }
     
