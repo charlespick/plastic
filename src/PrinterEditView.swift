@@ -18,15 +18,12 @@ struct PrinterEditView: View {
                 TextField("IP Address or DNS Name", text: $env.tempData.url)
             }
             if (env.isInEditMode) {
-                Button("Delete Printer") {
+                Button("Delete Printer", role: .destructive) {
                     for (index, printer) in env.configuredPrinters.enumerated() {
                             if (printer === env.printerBeingEdited){
                             env.configuredPrinters.remove(at: index)
                         }
                     }
-                }
-                .foregroundColor(.red)
-            }
                     env.isPresentingEditSheet = false
                 }            }
         }
