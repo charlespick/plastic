@@ -95,14 +95,16 @@ struct StatusBarView: View {
     @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
-        ZStack{
-            Rectangle()
-                .frame(height: 80.0).foregroundColor(.yellow)
+        HStack {
+            Spacer()
             VStack {
                 Text(env.selectedPrinter?.name ?? "No Printer Selected").font(.caption)
                 Text("Printer Ready")
+                    .padding(.bottom)
             }
+            Spacer()
         }
+        .background(.yellow)
         .padding(.bottom)
     }
 }
@@ -114,7 +116,6 @@ struct TemperatureButtonView: View {
                 Label("Tempurture", systemImage: "thermometer")
                 Spacer()
                 VStack{
-                    
                     TempLineView(target: 0.0, current: 23.2, label: "Ex0", changing: false)
                     TempLineView(target: 60.0, current: 32.4, label: "Bed", changing: true)
                 }
