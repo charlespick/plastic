@@ -12,10 +12,10 @@ struct DashboardView: View {
     
     var body: some View {
         VStack {
-            Text(env.selectedPrinter?.name ?? "No Printer Selected")
-            
+            StatusBarView()
             JoggingControlsView()
             TemperatureButtonView()
+            Spacer()
         }
     }
 }
@@ -90,6 +90,23 @@ struct TempLineView: View {
         }
     }
 }
+
+struct StatusBarView: View {
+    @EnvironmentObject var env: PrinterEnv
+    
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .frame(height: 80.0).foregroundColor(.yellow)
+            VStack {
+                Text(env.selectedPrinter?.name ?? "No Printer Selected").font(.caption)
+                Text("Printer Ready")
+            }
+        }
+        .padding(.bottom)
+    }
+}
+
 struct TemperatureButtonView: View {
     var body: some View {
         Button(action: {}) {
