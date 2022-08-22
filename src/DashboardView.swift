@@ -10,13 +10,12 @@ import SwiftUI
 struct DashboardView: View {
     @EnvironmentObject var env: PrinterEnv
     
-    
-    
     var body: some View {
         VStack {
             Text(env.selectedPrinter?.name ?? "No Printer Selected")
             
             JoggingControlsView()
+            TemperatureButtonView()
         }
     }
 }
@@ -74,5 +73,36 @@ struct JoggingControlsView: View {
             }
             
         }
+    }
+}
+
+struct TempLineView: View {
+    let target: CGFloat
+    let current: CGFloat
+    let label: String
+    let changing: Bool
+    
+    var body: some View {
+        if (changing) {
+            (Text("\(label): \(current.formatted()) ") + Text(Image(systemName: "arrow.right")) + Text(" \(target.formatted()) C°")).font(.caption).foregroundColor(.black)
+        } else {
+            Text("\(label): \(current.formatted()) C° ").font(.caption).foregroundColor(.black)
+        }
+    }
+}
+struct TemperatureButtonView: View {
+    var body: some View {
+        Button(action: {}) {
+            HStack{
+                Label("Tempurture", systemImage: "thermometer")
+                Spacer()
+                VStack{
+                    
+                    TempLineView(target: 0.0, current: 23.2, label: "Ex0", changing: false)
+                    TempLineView(target: 60.0, current: 32.4, label: "Bed", changing: true)
+                }
+            }.padding()
+            
+        }.buttonStyle(.bordered).padding()
     }
 }
