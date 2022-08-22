@@ -151,7 +151,7 @@ struct StatusBarView: View {
             }
             Spacer()
         }
-        .background(.yellow)
+        .background(.green)
         .padding(.bottom)
     }
 }
