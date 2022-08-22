@@ -13,8 +13,9 @@ struct ReadyDashboardView: View {
     var body: some View {
         VStack {
             StatusBarView()
-            JoggingControlsView()
-            TemperatureButtonView()
+            ToolheadView()
+            Divider()
+            TemperatureButtonView().padding(.horizontal)
             Spacer()
         }
     }
@@ -33,6 +34,8 @@ struct DashboardView_Previews: PreviewProvider {
 struct JoggingControlsView: View {
     let height = 50.0
     let width = 60.0
+    @State var moveSpeed: CGFloat = 10
+    @State var moveDist: CGFloat = 10
     
     var body: some View {
         VStack {
@@ -70,6 +73,23 @@ struct JoggingControlsView: View {
                 Button(action: {}){
                     Image(systemName: "arrow.down.circle").frame(width: width, height: height)
                 }.buttonStyle(.borderedProminent)
+            }
+            
+            VStack{
+                Text("Speed").font(.caption2).padding(.top, 2.0)
+                Picker("Speed", selection: $moveSpeed){
+                    Text(String(10))
+                    Text(String(20))
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+                Text("Distance").font(.caption2).padding(.top, 2.0)
+                Picker("Distance", selection: $moveDist){
+                    Text(String(10))
+                    Text(String(20))
+                }
+                .pickerStyle(.segmented).padding(.horizontal)
             }
             
         }
@@ -119,8 +139,37 @@ struct TemperatureButtonView: View {
                     TempLineView(target: 0.0, current: 23.2, label: "Ex0", changing: false)
                     TempLineView(target: 60.0, current: 32.4, label: "Bed", changing: true)
                 }
-            }.padding()
+            }.padding(5.0)
             
-        }.buttonStyle(.bordered).padding()
+        }
+        .buttonStyle(.bordered)
+    }
+}
+
+struct ToolheadPositionView: View {
+    @State var xPos: String = "1.0"
+    @State var yPos: String = "1.0"
+    @State var zPos: String = "1.0"
+    
+    var body: some View {
+        HStack{
+            Text("X").font(.caption2)
+            TextField("X Position", text: $xPos).textFieldStyle(.roundedBorder)
+            Text("Y").font(.caption2)
+            TextField("Y Position", text: $yPos).textFieldStyle(.roundedBorder)
+            Text("Z").font(.caption2)
+            TextField("Z Position", text: $zPos).textFieldStyle(.roundedBorder)
+        }
+        .padding()
+    }
+}
+
+struct ToolheadView: View {
+    var body: some View {
+        VStack{
+            Label("Toolhead", systemImage: "move.3d").padding(.bottom, 4.0).font(.caption)
+            ToolheadPositionView()
+            JoggingControlsView()
+        }
     }
 }
