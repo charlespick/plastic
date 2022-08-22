@@ -13,7 +13,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            DashboardView()
+            ReadyDashboardView()
                 .tabItem { Label("Dashboard", systemImage: "speedometer") }
             NavigationView {
                 PrintersView()

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DashboardView: View {
+struct ReadyDashboardView: View {
     @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
@@ -23,9 +23,9 @@ struct DashboardView: View {
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DashboardView().environmentObject(PrinterEnv())
-            DashboardView().previewDevice("iPhone 8").environmentObject(PrinterEnv())
-            DashboardView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
+            ReadyDashboardView().environmentObject(PrinterEnv())
+            ReadyDashboardView().previewDevice("iPhone 8").environmentObject(PrinterEnv())
+            ReadyDashboardView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
         }
     }
 }
