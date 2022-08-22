@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ReadyDashboardView: View {
     @EnvironmentObject var env: PrinterEnv
+
+    let rows = [
+        GridItem(.fixed(30), spacing: 5),
+        GridItem(.fixed(60), spacing: 0)
+    ]
     
     var body: some View {
         VStack {
@@ -16,6 +21,28 @@ struct ReadyDashboardView: View {
             ToolheadView()
             Divider()
             TemperatureButtonView().padding(.horizontal)
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, alignment: .center, spacing: 10) {
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(.horizontal)
+            }
             Spacer()
         }
     }
