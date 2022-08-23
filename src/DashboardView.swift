@@ -10,11 +10,6 @@ import SwiftUI
 struct ReadyDashboardView: View {
     @EnvironmentObject var env: PrinterEnv
 
-    let rows = [
-        GridItem(.fixed(30), spacing: 5),
-        GridItem(.fixed(60), spacing: 0)
-    ]
-    
     var body: some View {
         VStack {
             StatusBarView()
@@ -22,27 +17,7 @@ struct ReadyDashboardView: View {
             Divider()
             TemperatureButtonView().padding(.horizontal)
             
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, alignment: .center, spacing: 10) {
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .padding(.horizontal)
-            }
+             MacrosView()
             Spacer()
         }
     }
@@ -197,6 +172,41 @@ struct ToolheadView: View {
             Label("Toolhead", systemImage: "move.3d").padding(.bottom, 4.0).font(.caption)
             ToolheadPositionView()
             JoggingControlsView()
+        }
+    }
+}
+
+struct  MacrosView: View {
+    let rows = [
+        GridItem(.fixed(30), spacing: 5),
+        GridItem(.fixed(60), spacing: 0)
+    ]
+
+    
+    var body: some View {
+        VStack{
+            Label("Macros", systemImage: "figure.run").padding(.bottom, 4.0).font(.caption)
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, alignment: .center, spacing: 10) {
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button(action: {}) {
+                        Text("Hello")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(.horizontal)
+            }
         }
     }
 }
