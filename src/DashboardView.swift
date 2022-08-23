@@ -78,20 +78,22 @@ struct JoggingControlsView: View {
             }
             
             VStack{
-                Text("Speed").font(.caption2).padding(.top, 2.0)
-                Picker("Speed", selection: $moveSpeed){
-                    Text(String(10))
-                    Text(String(20))
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                
-                Text("Distance").font(.caption2).padding(.top, 2.0)
-                Picker("Distance", selection: $moveDist){
-                    Text(String(10))
-                    Text(String(20))
-                }
-                .pickerStyle(.segmented).padding(.horizontal)
+                HStack{
+                    Text("Speed").font(.caption2).padding(.top, 2.0)
+                    Picker("Speed", selection: $moveSpeed){
+                        Text(String(10))
+                        Text(String(20))
+                    }
+                    .pickerStyle(.segmented)
+                }.padding(.horizontal)
+                HStack{
+                    Text("Distance").font(.caption2).padding(.top, 2.0)
+                    Picker("Distance", selection: $moveDist){
+                        Text(String(10))
+                        Text(String(20))
+                    }
+                    .pickerStyle(.segmented)
+                }.padding(.horizontal)
             }
             
         }
@@ -162,7 +164,7 @@ struct ToolheadPositionView: View {
             Text("Z").font(.caption2)
             TextField("Z Position", text: $zPos).textFieldStyle(.roundedBorder)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
