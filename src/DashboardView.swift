@@ -160,32 +160,22 @@ struct ToolheadView: View {
 
 struct  MacrosView: View {
     let rows = [
-        GridItem(.fixed(30), spacing: 5),
+        GridItem(.fixed(60), spacing: 10),
         GridItem(.fixed(60), spacing: 0)
     ]
 
     
     var body: some View {
         VStack{
-            Label("Macros", systemImage: "figure.run").padding(.bottom, 4.0).font(.caption)
-            ScrollView(.horizontal) {
+            Label("Macros", systemImage: "wand.and.stars").padding(.bottom, 4.0).font(.caption)
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows, alignment: .center, spacing: 10) {
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    Button(action: {}) {
-                        Text("Hello")
-                    }
-                    .buttonStyle(.borderedProminent)
+                    MacroButtonView(name: "QGL")
+                    MacroButtonView(name: "Hello World")
+                    MacroButtonView(name: "Does Something")
+                    MacroButtonView(name: "Bark")
+                    MacroButtonView(name: "Start Print")
+                    
                 }
                 .padding(.horizontal)
             }
@@ -203,20 +193,33 @@ struct JogButtonView: View {
         if (prominent){
             Button(action: {}){
                 HStack {
-                    Spacer()
-                    Image(systemName: systemName).frame(height: height)
-                    Spacer()
+                    Image(systemName: systemName)
+                        .frame(maxWidth: .infinity, maxHeight: height)
                 }
             }.buttonStyle(.borderedProminent)
         } else {
             Button(action: {}){
                 HStack {
-                    Spacer()
                     Image(systemName: systemName)
-                        .frame(height: height)
-                    Spacer()
+                        .frame(maxWidth: .infinity, maxHeight: height)
                 }
             }.buttonStyle(.bordered)
         }
+    }
+}
+
+struct MacroButtonView: View {
+    let name: String
+    
+    var body: some View {
+        Button(action: {}) {
+            HStack {
+                Image(systemName: "play.circle").font(.largeTitle)
+                Text(name)
+                    .frame(minWidth: 120, maxHeight: .infinity)
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        
     }
 }
