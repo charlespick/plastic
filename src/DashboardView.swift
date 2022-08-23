@@ -41,45 +41,24 @@ struct JoggingControlsView: View {
     
     var body: some View {
         VStack {
-            HStack{
-                Button(action: {}){
-                    Image(systemName: "ellipsis").frame(width: width, height: height)
-                }.buttonStyle(.bordered)
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.up.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-                
-                Button(action: {}){
-                    Image(systemName: "house").frame(width: width, height: height)
-                }.buttonStyle(.bordered)
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.up.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-            }
-            HStack{
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.left.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.down.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.right.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-                
-                Button(action: {}){
-                    Image(systemName: "arrow.down.circle").frame(width: width, height: height)
-                }.buttonStyle(.borderedProminent)
-            }
-            
             VStack{
                 HStack{
-                    Text("Speed").font(.caption2).padding(.top, 2.0)
+                    JogButtonView(systemName: "ellipsis", prominent: false)
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
+                    JogButtonView(systemName: "house", prominent: false)
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
+                }
+                HStack{
+                    JogButtonView(systemName: "arrow.left.circle", prominent: true)
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
+                    JogButtonView(systemName: "arrow.right.circle", prominent: true)
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
+                }
+            }.padding()
+                        
+            VStack{
+                HStack{
+                    Text("Speed").font(.caption2).padding(.top, 2.0).frame(width: 60.0)
                     Picker("Speed", selection: $moveSpeed){
                         Text(String(10))
                         Text(String(20))
@@ -87,10 +66,11 @@ struct JoggingControlsView: View {
                     .pickerStyle(.segmented)
                 }.padding(.horizontal)
                 HStack{
-                    Text("Distance").font(.caption2).padding(.top, 2.0)
+                    Text("Distance").font(.caption2).padding(.top, 2.0).frame(width: 60.0)
                     Picker("Distance", selection: $moveDist){
                         Text(String(10))
                         Text(String(20))
+                        Text(String(30))
                     }
                     .pickerStyle(.segmented)
                 }.padding(.horizontal)
@@ -209,6 +189,34 @@ struct  MacrosView: View {
                 }
                 .padding(.horizontal)
             }
+        }
+    }
+}
+
+struct JogButtonView: View {
+    let systemName: String
+    let prominent: Bool
+    let height = 40.0
+    
+    var body: some View {
+        
+        if (prominent){
+            Button(action: {}){
+                HStack {
+                    Spacer()
+                    Image(systemName: systemName).frame(height: height)
+                    Spacer()
+                }
+            }.buttonStyle(.borderedProminent)
+        } else {
+            Button(action: {}){
+                HStack {
+                    Spacer()
+                    Image(systemName: systemName)
+                        .frame(height: height)
+                    Spacer()
+                }
+            }.buttonStyle(.bordered)
         }
     }
 }
