@@ -13,7 +13,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            DashboardView()
+            ReadyDashboardView()
                 .tabItem { Label("Dashboard", systemImage: "speedometer") }
             NavigationView {
                 PrintersView()
@@ -27,7 +27,10 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        Group {
+            MainView().environmentObject(PrinterEnv())
+            MainView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
+        }
     }
 }
 
