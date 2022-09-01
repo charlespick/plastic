@@ -17,7 +17,7 @@ struct ReadyDashboardView: View {
             Divider()
             TemperatureButtonView().padding(.horizontal)
             
-             MacrosView()
+            MacrosView()
             Spacer()
         }
     }
