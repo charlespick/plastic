@@ -38,21 +38,52 @@ struct JoggingControlsView: View {
     let width = 60.0
     @State var moveSpeed: CGFloat = 10
     @State var moveDist: CGFloat = 10
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         VStack {
             VStack{
                 HStack{
-                    JogButtonView(systemName: "ellipsis", prominent: false)
-                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
-                    JogButtonView(systemName: "house", prominent: false)
-                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
+                    JogButtonView(systemName: "ellipsis", prominent: false) {
+                        
+                        let task = URLSession.shared.webSocketTask(with: URL(string: "ws://10.7.1.6:7125/websocket")!)
+                        task.resume()
+
+                        struct JsonRPCRequest: Encodable {
+                            let jsonrpc: String //we use a string to override the default json encoding behavior for decimal values.
+                            let method: String
+                            let id: Int
+                        }
+                        let request = JsonRPCRequest(jsonrpc: "2.0", method: "printer.emergency_stop", id: env.jsonID)
+                        env.jsonID+=1
+                        
+                        var payload = Data()
+                        do {
+                            payload = try JSONEncoder().encode(request)
+                        }
+                        catch {}
+                        
+                        task.receive() { responce in
+                            print("incoming message")
+                            print(responce)
+                            print("end of message")
+                        }
+                        
+                        task.send(.data(payload)) { error in
+                            if error == nil{
+                                print(error as Any)
+                            }
+                        }
+                    }
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "house", prominent: false, action: {})
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true, action: {})
                 }
                 HStack{
-                    JogButtonView(systemName: "arrow.left.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.right.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
+                    JogButtonView(systemName: "arrow.left.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.right.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true, action: {})
                 }
             }.padding()
                         
@@ -187,18 +218,19 @@ struct JogButtonView: View {
     let systemName: String
     let prominent: Bool
     let height = 40.0
+    let action: ()->()
     
     var body: some View {
         
         if (prominent){
-            Button(action: {}){
+            Button(action: { action() }){
                 HStack {
                     Image(systemName: systemName)
                         .frame(maxWidth: .infinity, maxHeight: height)
                 }
             }.buttonStyle(.borderedProminent)
         } else {
-            Button(action: {}){
+            Button(action: { action() }){
                 HStack {
                     Image(systemName: systemName)
                         .frame(maxWidth: .infinity, maxHeight: height)
