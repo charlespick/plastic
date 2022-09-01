@@ -12,9 +12,21 @@ class Printer: Identifiable, ObservableObject, Codable {
         return(lhs === rhs)
     }
     
+    struct JsonRPCRequest: Encodable {
+        let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
+        let method: String
+        let id: Int
+    }
+
+    func newJsonRPCRequest(method: String) -> JsonRPCRequest {
+        return JsonRPCRequest(method: method, id: jsonID)
+    }
+    
     @Published var name: String
     @Published var id: UUID
     @Published var url: String
+    var wsocket: URLSessionWebSocketTask?
+    var jsonID = 50
     
     enum CodingKeys: CodingKey {
         case name
@@ -60,5 +72,34 @@ class Printer: Identifiable, ObservableObject, Codable {
         id = UUID()
         name = data.name
         url = data.url
+    }
+    
+    func connect(){
+        wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
+        wsocket?.resume()
+    }
+    
+    func sendMoonrakerCommand(request: JsonRPCRequest){
+        var payload = Data()
+        do {
+            payload = try JSONEncoder().encode(request)
+        }
+        catch {}
+        
+        wsocket?.send(.data(payload)) { error in
+            if error == nil{
+                print(error as Any)
+            }
+        }
+    }
+    func eStop() {
+        connect()
+        let request = newJsonRPCRequest(method: "printer.emergency_stop")
+        sendMoonrakerCommand(request: request)
+        wsocket?.receive() { responce in
+            print("incoming message")
+            print(responce)
+            print("end of message")
+        }
     }
 }

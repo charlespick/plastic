@@ -14,7 +14,6 @@ class PrinterEnv: ObservableObject {
     @Published var isPresentingEditSheet = false
     @Published var isInEditMode = false
     @Published var tempData = Printer.ModifiedData()
-    @Published var jsonID = 50
     
     init() {
         configuredPrinters.append(contentsOf: [Printer(name: "Voron", url: ""), Printer(name: "CR10", url: ""), Printer(name: "Delta", url: "")])
