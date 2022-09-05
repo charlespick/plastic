@@ -38,21 +38,24 @@ struct JoggingControlsView: View {
     let width = 60.0
     @State var moveSpeed: CGFloat = 10
     @State var moveDist: CGFloat = 10
+    @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
         VStack {
             VStack{
                 HStack{
-                    JogButtonView(systemName: "ellipsis", prominent: false)
-                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
-                    JogButtonView(systemName: "house", prominent: false)
-                    JogButtonView(systemName: "arrow.up.circle", prominent: true)
+                    JogButtonView(systemName: "ellipsis", prominent: false) {
+                        env.selectedPrinter?.eStop()
+                    }
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "house", prominent: false, action: {})
+                    JogButtonView(systemName: "arrow.up.circle", prominent: true, action: {})
                 }
                 HStack{
-                    JogButtonView(systemName: "arrow.left.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.right.circle", prominent: true)
-                    JogButtonView(systemName: "arrow.down.circle", prominent: true)
+                    JogButtonView(systemName: "arrow.left.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.right.circle", prominent: true, action: {})
+                    JogButtonView(systemName: "arrow.down.circle", prominent: true, action: {})
                 }
             }.padding()
                         
@@ -187,18 +190,19 @@ struct JogButtonView: View {
     let systemName: String
     let prominent: Bool
     let height = 40.0
+    let action: ()->()
     
     var body: some View {
         
         if (prominent){
-            Button(action: {}){
+            Button(action: { action() }){
                 HStack {
                     Image(systemName: systemName)
                         .frame(maxWidth: .infinity, maxHeight: height)
                 }
             }.buttonStyle(.borderedProminent)
         } else {
-            Button(action: {}){
+            Button(action: { action() }){
                 HStack {
                     Image(systemName: systemName)
                         .frame(maxWidth: .infinity, maxHeight: height)
