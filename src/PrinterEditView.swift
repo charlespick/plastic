@@ -25,7 +25,8 @@ struct PrinterEditView: View {
                         }
                     }
                     env.isPresentingEditSheet = false
-                }            }
+                }
+            }
         }
     }
 }

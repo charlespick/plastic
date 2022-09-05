@@ -16,8 +16,9 @@ class PrinterEnv: ObservableObject {
     @Published var tempData = Printer.ModifiedData()
     
     init() {
-        configuredPrinters.append(contentsOf: [Printer(name: "Voron", url: ""), Printer(name: "CR10", url: ""), Printer(name: "Delta", url: "")])
+        configuredPrinters.append(contentsOf: [Printer(name: "test", url: "10.7.1.6:7125")])
         selectedPrinter = configuredPrinters.first
+        selectedPrinter?.connect()
     }
     
     private func file() throws -> URL {

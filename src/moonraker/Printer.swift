@@ -77,6 +77,8 @@ class Printer: Identifiable, ObservableObject, Codable {
     func connect(){
         wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
         wsocket?.resume()
+        ping()
+        startReceive()
     }
     
     func sendMoonrakerCommand(request: JsonRPCRequest){
@@ -92,14 +94,32 @@ class Printer: Identifiable, ObservableObject, Codable {
             }
         }
     }
-    func eStop() {
-        connect()
-        let request = newJsonRPCRequest(method: "printer.emergency_stop")
-        sendMoonrakerCommand(request: request)
+    
+    func startReceive() {
         wsocket?.receive() { responce in
             print("incoming message")
             print(responce)
             print("end of message")
+            
+            //handle incoming message
+            
+            self.startReceive()
         }
+    }
+    
+    func ping(){
+        Task {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            wsocket?.sendPing() { result in
+                return
+            }
+            self.ping()
+        }
+    }
+    
+    func eStop() {
+        let request = newJsonRPCRequest(method: "printer.emergency_stop")
+        sendMoonrakerCommand(request: request)
+        
     }
 }

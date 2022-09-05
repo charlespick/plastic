@@ -62,7 +62,8 @@ struct PrinterCardView: View {
                 env.tempData = env.printerBeingEdited?.modifiedData ?? Printer.ModifiedData(name: "Error", url: "Error")
                 env.isPresentingEditSheet = true
             } else {
-                env.selectedPrinter = printer   
+                env.selectedPrinter = printer
+                env.selectedPrinter?.connect()
             }})
         {
             HStack{
