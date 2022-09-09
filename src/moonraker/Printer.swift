@@ -43,13 +43,41 @@ class Printer: Identifiable, ObservableObject, Codable {
     }
     func startReceive() {
         wsocket?.receive() { responce in
-            print("incoming message")
-            print(responce)
-            print("end of message")
-            
-            //handle incoming message on a new task /thread if I need to
-            
-            self.startReceive()
+            switch responce {
+                case .failure:
+                    print("failed to get message")
+                    self.isConnected = false
+                case .success(let message):
+                    switch message {
+                    case .data(_):
+                        print("expected string from websocket")
+                        self.isConnected = false
+                    case .string(let string):
+                        print(string)
+                        let data = string.data(using: .utf8)
+                        let decoder = JSONDecoder()
+                        do {
+                            let message = try decoder.decode(JsonRPCMessage.self, from: data!)
+                            print("result: \(message.result ?? "none")")
+                            print("method: \(message.method ?? "none")")
+                            
+                            // handle message here
+                            self.isConnected = true
+                        } catch {
+                            print("other unknown error occured")
+                            self.isConnected = false
+                        }
+                    default:
+                        print("unknown data type")
+                        self.isConnected = false
+                }
+            }
+            if (self.isConnected){
+                print("connection is open")
+                self.startReceive()
+            } else {
+                print("connection is closed")
+            }
         }
     }
     func ping(){
@@ -75,6 +103,12 @@ class Printer: Identifiable, ObservableObject, Codable {
     }
     func newJsonRPCRequest(method: String) -> JsonRPCRequest {
         return JsonRPCRequest(method: method, id: jsonID)
+    }
+    struct JsonRPCMessage: Codable {
+        let jsonrpc: String
+        let result: String?
+        let method: String?
+        let id: Int?
     }
     
     // Helpers for persistent storage
@@ -119,3 +153,4 @@ class Printer: Identifiable, ObservableObject, Codable {
         url = data.url
     }
 }
+
