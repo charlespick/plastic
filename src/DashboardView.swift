@@ -12,7 +12,7 @@ struct ReadyDashboardView: View {
 
     var body: some View {
         VStack {
-            StatusBarView()
+            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
             ToolheadView()
             Divider()
             TemperatureButtonView().padding(.horizontal)
@@ -99,19 +99,19 @@ struct TempLineView: View {
 }
 
 struct StatusBarView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @ObservedObject var selectedPrinter: Printer
     
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                Text(env.selectedPrinter?.name ?? "No Printer Selected").font(.caption)
-                Text(env.selectedPrinter?.isConnected ?? false ? "Printer Ready" : "Nor Connected")
+                Text(selectedPrinter.name ?? "No Printer Selected").font(.caption)
+                Text(selectedPrinter.isConnected ?? false ? "Printer Ready" : "Nor Connected")
                     .padding(.bottom)
             }
             Spacer()
         }
-        .background(env.selectedPrinter?.isConnected ?? false ? .green : .red)
+        .background(selectedPrinter.isConnected ?? false ? .green : .red)
         .padding(.bottom)
     }
 }
