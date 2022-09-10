@@ -105,13 +105,13 @@ struct StatusBarView: View {
         HStack {
             Spacer()
             VStack {
-                Text(selectedPrinter.name ?? "No Printer Selected").font(.caption)
-                Text(selectedPrinter.isConnected ?? false ? "Printer Ready" : "Nor Connected")
+                Text(selectedPrinter.name ).font(.caption)
+                Text(selectedPrinter.isConnected ? "Printer Ready" : "Nor Connected")
                     .padding(.bottom)
             }
             Spacer()
         }
-        .background(selectedPrinter.isConnected ?? false ? .green : .red)
+        .background(selectedPrinter.isConnected ? .green : .red)
         .padding(.bottom)
     }
 }
