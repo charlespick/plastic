@@ -53,12 +53,17 @@ class Printer: Identifiable, ObservableObject, Codable {
             switch responce {
                 case .failure:
                     print("failed to get message")
+                DispatchQueue.main.async {
                     self.isConnected = false
+                }
+
                 case .success(let message):
                     switch message {
                     case .data(_):
                         print("expected string from websocket")
-                        self.isConnected = false
+                        DispatchQueue.main.async {
+                            self.isConnected = false
+                        }
                     case .string(let string):
                         print(string)
                         let data = string.data(using: .utf8)
@@ -69,14 +74,20 @@ class Printer: Identifiable, ObservableObject, Codable {
                             print("method: \(message.method ?? "none")")
                             
                             // handle message here
-                            self.isConnected = true
+                            DispatchQueue.main.async {
+                                self.isConnected = true
+                            }
                         } catch {
                             print("other unknown error occured")
-                            self.isConnected = false
+                            DispatchQueue.main.async {
+                                self.isConnected = false
+                            }
                         }
                     default:
                         print("unknown data type")
-                        self.isConnected = false
+                        DispatchQueue.main.async {
+                            self.isConnected = false
+                        }
                 }
             }
             if (self.isConnected){
