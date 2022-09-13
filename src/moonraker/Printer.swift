@@ -13,6 +13,7 @@ class Printer: Identifiable, ObservableObject, Codable {
     @Published var id: UUID
     @Published var url: String
     @Published var isConnected = false
+    @Published var isShutdown = false
     var wsocket: URLSessionWebSocketTask?
     var jsonID = 50
     

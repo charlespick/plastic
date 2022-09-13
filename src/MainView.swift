@@ -9,12 +9,21 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var env: PrinterEnv
+    @ObservedObject var selectedPrinter: Printer
     
     var body: some View {
         TabView {
-            ReadyDashboardView()
-                .tabItem { Label("Dashboard", systemImage: "speedometer") }
-            NavigationView {
+            if (selectedPrinter.isConnected && !selectedPrinter.isShutdown) {
+                ReadyDashboardView()
+                    .tabItem { Label("Dashboard", systemImage: "speedometer") }
+            } else if (selectedPrinter.isShutdown && selectedPrinter.isConnected) {
+                ShutdownDashboardView()
+                    .tabItem { Label("Dashboard", systemImage: "speedometer") }
+            } else {
+                DisconnectedDashboardView()
+                    .tabItem { Label("Dashboard", systemImage: "speedometer") }
+            }
+                        NavigationView {
                 PrintersView()
             }.tabItem { Label("Printers", systemImage: "printer") }
                 .sheet(isPresented: $env.isPresentingEditSheet) {
@@ -27,8 +36,8 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainView().environmentObject(PrinterEnv())
-            MainView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
+            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).environmentObject(PrinterEnv())
+            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
         }
     }
 }
