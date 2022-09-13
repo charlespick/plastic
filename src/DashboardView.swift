@@ -45,7 +45,7 @@ struct ShutdownDashboardView: View {
             StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
             Spacer()
             Button("Restart") {
-                env.selectedPrinter?.systemRestart()
+                env.selectedPrinter?.printerRestart()
                 env.selectedPrinter?.connect()
             }
             Spacer()

@@ -15,15 +15,19 @@ class Printer: Identifiable, ObservableObject, Codable {
     @Published var isConnected = false
     @Published var isShutdown = false
     var wsocket: URLSessionWebSocketTask?
-    var jsonID = 50
+    var nextJSONid = 50
+    var idLookup: [Int: MoonrakerMessageType] = [:]
     
     // Printer Functions
     func eStop() {
         let request = newJsonRPCRequest(method: "printer.emergency_stop")
+        idLookup[nextJSONid] = .printerEmergency_stop
         sendMoonrakerCommand(request: request)
+        
     }
-    func systemRestart() {
+    func printerRestart() {
         let request = newJsonRPCRequest(method: "printer.restart")
+        idLookup[nextJSONid] = .printerRestart
         sendMoonrakerCommand(request: request)
     }
     
@@ -33,7 +37,9 @@ class Printer: Identifiable, ObservableObject, Codable {
         wsocket?.resume()
         queryStatus()
         ping()
+        idLookup[nextJSONid] = .serverInfo
         startReceive()
+        
     }
     func sendMoonrakerCommand(request: JsonRPCRequest){
         var payload = Data()
@@ -50,83 +56,108 @@ class Printer: Identifiable, ObservableObject, Codable {
     func queryStatus(){
         Task {
             self.sendMoonrakerCommand(request: newJsonRPCRequest(method: "server.info"))
-            try await Task.sleep(nanoseconds:5_000_000_000)
+            try await Task.sleep(nanoseconds:1_000_000_000)
             self.queryStatus()
         }
     }
     func startReceive() {
         wsocket?.receive() { responce in
-            var justConnected = false
+            var recivedValidMessage = true
             switch responce {
-                case .failure:
-                    print("failed to get message")
+                
+            case .failure:
+                print("failed to get message")
                 DispatchQueue.main.async {
                     self.isConnected = false
                 }
-
-                case .success(let message):
-                    switch message {
-                    case .data(_):
-                        print("expected string from websocket")
-                        DispatchQueue.main.async {
-                            self.isConnected = false
-                        }
-                    case .string(let string):
-                        print(string)
-                        let data = string.data(using: .utf8)
-                        do {
-                            if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                                // try to read out a string array
-                                if let jsonrpc = json["jsonrpc"] as? String {
-                                    if (jsonrpc == "2.0") {
-                                        
-                                        if let method = json["method"] as? String {
-                                            print(method)
-                                            if (method == "notify_klippy_shutdown") {
-                                                self.isShutdown = true
-                                            }
-                                        }
-                                        if let result = json["result"] as? [String: Any] {
-                                            if let klippyConnected = result["klippy_connected"] as? Bool {
-                                                if (klippyConnected) {
-                                                    print("klippy connected")
-                                                } else {
-                                                    print("klippy disconnected")
-                                                }
-                                            }
-                                            if let klippyShutdown = result["klippy_state"] as? String {
-                                                if (klippyShutdown == "shutdown") {
-                                                    self.isShutdown = true
-                                                } else {
-                                                    self.isShutdown = false
-                                                }
-                                            }
-                                        }
-                                        justConnected = true
+            
+            case .success(let message):
+                switch message {
+                    
+                case .data(_):
+                    print("expected string from websocket")
+                    DispatchQueue.main.async {
+                        self.isConnected = false
+                    }
+                    
+                case .string(let string):
+                    print(string)
+                    let data = string.data(using: .utf8)
+                    
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                            if (json["jsonrpc"] as? String == "2.0") {
+                                
+                                //handle messages
+                                if let id = json["id"] as? Int {
+                                    let result = json["result"] as? [String: Any]
+                                    
+                                    switch self.idLookup[id]{
+                                    case .printerEmergency_stop:
+                                        print("Recived shutdown confirmation")
                                         DispatchQueue.main.async {
-                                            self.isConnected = true
+                                            self.isShutdown = true
                                         }
+                                        recivedValidMessage = true
+                                    case .printerInfo:
+                                        self.isShutdown = (result!["klippy_state"] as? String == "shutdown")
+                                        recivedValidMessage = true
+                                    case .none:
+                                        return
+                                    case .some(.printerRestart):
+                                        return
+                                    case .some(.printerFirmware_restart):
+                                        return
+                                    case .some(.notifyProcStatUpdate):
+                                        return
+                                    case .some(.serverInfo):
+                                        print(result)
+                                        recivedValidMessage = true
                                     }
                                 }
-                            }
-                        } catch {
-                            print("other unknown error occured")
-                            DispatchQueue.main.async {
-                                self.isConnected = false
+                                
+                                //handle methods
+                                if let method = json["method"] as? String {
+                                    switch (method) {
+                                    case "notify_proc_stat_update":
+                                        //print(json["params"]!)
+                                        recivedValidMessage = true
+                                    default:
+                                        return
+                                    }
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    self.isConnected = true
+                                }
                             }
                         }
-                    default:
-                        print("unknown data type")
+                    } catch {
+                        print("other unknown error occured")
                         DispatchQueue.main.async {
                             self.isConnected = false
                         }
+                    }
+                    
+                default:
+                    print("unknown data type")
+                    DispatchQueue.main.async {
+                        self.isConnected = false
+                    }
                 }
+                
+            
             }
-            if (self.isConnected || justConnected){
-                print("connection is open")
+            if (recivedValidMessage){
+                DispatchQueue.main.async {
+                    self.isConnected = true
+                }
                 self.startReceive()
             } else {
-                print("connection is closed")
+                DispatchQueue.main.async {
+                    self.isConnected = true
+                }
+                self.startReceive()
             }
         }
     }
@@ -152,7 +183,8 @@ class Printer: Identifiable, ObservableObject, Codable {
         let id: Int
     }
     func newJsonRPCRequest(method: String) -> JsonRPCRequest {
-        return JsonRPCRequest(method: method, id: jsonID)
+        nextJSONid+=1
+        return JsonRPCRequest(method: method, id: nextJSONid)
     }
     
     // Helpers for persistent storage
