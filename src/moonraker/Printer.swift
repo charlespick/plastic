@@ -31,6 +31,7 @@ class Printer: Identifiable, ObservableObject, Codable {
     func connect(){
         wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
         wsocket?.resume()
+        queryStatus()
         ping()
         startReceive()
     }
@@ -55,6 +56,7 @@ class Printer: Identifiable, ObservableObject, Codable {
     }
     func startReceive() {
         wsocket?.receive() { responce in
+            var justConnected = false
             switch responce {
                 case .failure:
                     print("failed to get message")
@@ -72,15 +74,40 @@ class Printer: Identifiable, ObservableObject, Codable {
                     case .string(let string):
                         print(string)
                         let data = string.data(using: .utf8)
-                        let decoder = JSONDecoder()
                         do {
-                            let message = try decoder.decode(JsonRPCMessage.self, from: data!)
-                            print("result: \(message.result ?? "none")")
-                            print("method: \(message.method ?? "none")")
-                            
-                            // handle message here
-                            DispatchQueue.main.async {
-                                self.isConnected = true
+                            if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                                // try to read out a string array
+                                if let jsonrpc = json["jsonrpc"] as? String {
+                                    if (jsonrpc == "2.0") {
+                                        
+                                        if let method = json["method"] as? String {
+                                            print(method)
+                                            if (method == "notify_klippy_shutdown") {
+                                                self.isShutdown = true
+                                            }
+                                        }
+                                        if let result = json["result"] as? [String: Any] {
+                                            if let klippyConnected = result["klippy_connected"] as? Bool {
+                                                if (klippyConnected) {
+                                                    print("klippy connected")
+                                                } else {
+                                                    print("klippy disconnected")
+                                                }
+                                            }
+                                            if let klippyShutdown = result["klippy_state"] as? String {
+                                                if (klippyShutdown == "shutdown") {
+                                                    self.isShutdown = true
+                                                } else {
+                                                    self.isShutdown = false
+                                                }
+                                            }
+                                        }
+                                        justConnected = true
+                                        DispatchQueue.main.async {
+                                            self.isConnected = true
+                                        }
+                                    }
+                                }
                             }
                         } catch {
                             print("other unknown error occured")
@@ -95,7 +122,7 @@ class Printer: Identifiable, ObservableObject, Codable {
                         }
                 }
             }
-            if (self.isConnected){
+            if (self.isConnected || justConnected){
                 print("connection is open")
                 self.startReceive()
             } else {
@@ -126,12 +153,6 @@ class Printer: Identifiable, ObservableObject, Codable {
     }
     func newJsonRPCRequest(method: String) -> JsonRPCRequest {
         return JsonRPCRequest(method: method, id: jsonID)
-    }
-    struct JsonRPCMessage: Codable {
-        let jsonrpc: String
-        let result: String?
-        let method: String?
-        let id: Int?
     }
     
     // Helpers for persistent storage
