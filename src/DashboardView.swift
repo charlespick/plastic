@@ -23,9 +23,40 @@ struct ReadyDashboardView: View {
     }
 }
 
+struct DisconnectedDashboardView: View {
+    @EnvironmentObject var env: PrinterEnv
+    
+    var body: some View {
+        VStack {
+            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            Spacer()
+            Button("Connect") {
+                env.selectedPrinter?.connect()
+            }
+            Spacer()
+        }
+    }
+}
+
+struct ShutdownDashboardView: View {
+    @EnvironmentObject var env: PrinterEnv
+    var body: some View {
+        VStack {
+            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            Spacer()
+            Button("Restart") {
+                env.selectedPrinter?.connect()
+            }
+            Spacer()
+
+        }
+    }
+}
+
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            DisconnectedDashboardView().environmentObject(PrinterEnv())
             ReadyDashboardView().environmentObject(PrinterEnv())
             ReadyDashboardView().previewDevice("iPhone 8").environmentObject(PrinterEnv())
             ReadyDashboardView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
