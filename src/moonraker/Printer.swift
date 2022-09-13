@@ -22,6 +22,10 @@ class Printer: Identifiable, ObservableObject, Codable {
         let request = newJsonRPCRequest(method: "printer.emergency_stop")
         sendMoonrakerCommand(request: request)
     }
+    func systemRestart() {
+        let request = newJsonRPCRequest(method: "printer.restart")
+        sendMoonrakerCommand(request: request)
+    }
     
     // Websocket operations
     func connect(){
