@@ -41,6 +41,13 @@ class Printer: Identifiable, ObservableObject, Codable {
             }
         }
     }
+    func queryStatus(){
+        Task {
+            self.sendMoonrakerCommand(request: newJsonRPCRequest(method: "server.info"))
+            try await Task.sleep(nanoseconds:5_000_000_000)
+            self.queryStatus()
+        }
+    }
     func startReceive() {
         wsocket?.receive() { responce in
             switch responce {
