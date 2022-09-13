@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var isInEditMode = false
     @EnvironmentObject var env: PrinterEnv
     
     var body: some View {
