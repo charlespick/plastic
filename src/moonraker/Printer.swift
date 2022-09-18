@@ -58,8 +58,8 @@ class Printer: Identifiable, ObservableObject, Codable {
         }
     }
     func startReceive() {
-        wsocket?.receive() { responce in
-            switch responce {
+        wsocket?.receive() { response in
+            switch response {
                 
             case .failure:
                 print("failed to get message")
@@ -79,14 +79,13 @@ class Printer: Identifiable, ObservableObject, Codable {
                 case .string(let string):
                     print(string)
                     let data = string.data(using: .utf8)
-                    
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
                             // If re receive an id, it is a responce to a method.
                             // Handle the response according to the matching method.
                             if let id = json["id"] as? Int {
                                 let result = json["result"] as? [String: Any]
-                                switch self.idLookup[id]{
+                                switch (self.idLookup[id]) {
                                 case .printerEmergency_stop:
                                     print("Recived shutdown confirmation")
                                     DispatchQueue.main.async {
@@ -101,9 +100,9 @@ class Printer: Identifiable, ObservableObject, Codable {
                                 case .some(.printerFirmware_restart):
                                     print("printer firmware restarted")
                                 case .some(.serverInfo):
-                                    print(result)
-                                }
-                            }
+                                    print(result as Any)
+                                } // switch (id)
+                            } // if let id = json...
                             
                             // If we receive a method string, it is a method.
                             if let method = json["method"] as? String {
@@ -112,24 +111,18 @@ class Printer: Identifiable, ObservableObject, Codable {
                                     print(json["params"]!)
                                 default:
                                     print("other unused method received")
-                                }
-                            }
-                        }
+                                } // switch (method)...
+                            } // if let method = json...
+                        } // if let json = try...
                     } catch {
                         // If the response was not JSON readable,
                         // a connection breaking error has occured
                         DispatchQueue.main.async {
                             self.isConnected = false
                         }
-                    }
-                    
-                default:
-                    print("unknown data type")
-                    DispatchQueue.main.async {
-                        self.isConnected = false
-                    }
-                }
-            }
+                    } // catch main do
+                } // case .string
+            } // switch (response)
             self.startReceive()
         } // end of receive closure
     }
