@@ -16,35 +16,32 @@ class Printer: Identifiable, ObservableObject, Codable {
     @Published var isShutdown = false
     var wsocket: URLSessionWebSocketTask?
     var nextJSONid = 50
-    var idLookup: [Int: MoonrakerMessageType] = [:]
+    var idLookup: [Int: MoonrakerMethod] = [:]
     
     // Printer Functions
     func eStop() {
-        let request = newJsonRPCRequest(method: "printer.emergency_stop")
-        idLookup[nextJSONid] = .printerEmergency_stop
-        sendMoonrakerCommand(request: request)
+        sendMoonrakerCommand(method: .printerEmergency_stop)
         
     }
     func printerRestart() {
-        let request = newJsonRPCRequest(method: "printer.restart")
-        idLookup[nextJSONid] = .printerRestart
-        sendMoonrakerCommand(request: request)
+        sendMoonrakerCommand(method: .printerRestart)
     }
     
     // Websocket operations
     func connect(){
         wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
         wsocket?.resume()
-        queryStatus()
+        //queryStatus()
         ping()
         idLookup[nextJSONid] = .serverInfo
         startReceive()
-        
     }
-    func sendMoonrakerCommand(request: JsonRPCRequest){
+    func sendMoonrakerCommand(method: MoonrakerMethod){
         var payload = Data()
         do {
-            payload = try JSONEncoder().encode(request)
+            payload = try JSONEncoder().encode(JsonRPCRequest(method: method.rawValue, id: nextJSONid))
+            idLookup[nextJSONid] = method
+            nextJSONid += 1
         }
         catch {}
         wsocket?.send(.data(payload)) { error in
@@ -55,14 +52,14 @@ class Printer: Identifiable, ObservableObject, Codable {
     }
     func queryStatus(){
         Task {
-            self.sendMoonrakerCommand(request: newJsonRPCRequest(method: "server.info"))
-            try await Task.sleep(nanoseconds:1_000_000_000)
+            self.sendMoonrakerCommand(method: .printerInfo)
+            try await Task.sleep(nanoseconds:10_000_000_000)
             self.queryStatus()
         }
     }
     func startReceive() {
         wsocket?.receive() { responce in
-            var recivedValidMessage = true
+            print(responce)
             switch responce {
                 
             case .failure:
@@ -98,21 +95,16 @@ class Printer: Identifiable, ObservableObject, Codable {
                                         DispatchQueue.main.async {
                                             self.isShutdown = true
                                         }
-                                        recivedValidMessage = true
                                     case .printerInfo:
                                         self.isShutdown = (result!["klippy_state"] as? String == "shutdown")
-                                        recivedValidMessage = true
                                     case .none:
-                                        return
+                                        print("no method registered")
                                     case .some(.printerRestart):
-                                        return
+                                        print("printer restarted")
                                     case .some(.printerFirmware_restart):
-                                        return
-                                    case .some(.notifyProcStatUpdate):
-                                        return
+                                        print("printer firmware restarted")
                                     case .some(.serverInfo):
                                         print(result)
-                                        recivedValidMessage = true
                                     }
                                 }
                                 
@@ -120,8 +112,7 @@ class Printer: Identifiable, ObservableObject, Codable {
                                 if let method = json["method"] as? String {
                                     switch (method) {
                                     case "notify_proc_stat_update":
-                                        //print(json["params"]!)
-                                        recivedValidMessage = true
+                                        print(json["params"]!)
                                     default:
                                         return
                                     }
@@ -145,20 +136,8 @@ class Printer: Identifiable, ObservableObject, Codable {
                         self.isConnected = false
                     }
                 }
-                
-            
             }
-            if (recivedValidMessage){
-                DispatchQueue.main.async {
-                    self.isConnected = true
-                }
-                self.startReceive()
-            } else {
-                DispatchQueue.main.async {
-                    self.isConnected = true
-                }
-                self.startReceive()
-            }
+            self.startReceive()
         }
     }
     func ping(){
@@ -181,10 +160,6 @@ class Printer: Identifiable, ObservableObject, Codable {
         let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
         let method: String
         let id: Int
-    }
-    func newJsonRPCRequest(method: String) -> JsonRPCRequest {
-        nextJSONid+=1
-        return JsonRPCRequest(method: method, id: nextJSONid)
     }
     
     // Helpers for persistent storage
