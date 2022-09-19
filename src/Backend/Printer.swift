@@ -16,6 +16,10 @@ class Printer: Identifiable, ObservableObject, Codable {
     @Published var isConnected = false
     @Published var isShutdown = false
     
+    var wsocket: URLSessionWebSocketTask?
+    var nextJSONid = 50
+    var idLookup: [Int: MoonrakerMethod] = [:]
+    
     // Helpers for: Identifiable
     static func == (lhs: Printer, rhs: Printer) -> Bool {
         return(lhs === rhs)

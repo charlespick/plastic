@@ -10,7 +10,7 @@ import CoreData
 
 @main
 struct PlasticApp: App {
-    @StateObject private var env = PrinterEnv()
+    @StateObject private var env = AppEnv()
     
     var body: some Scene {
         WindowGroup {

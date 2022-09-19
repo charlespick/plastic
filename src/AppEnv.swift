@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PrinterEnv: ObservableObject {
+class AppEnv: ObservableObject {
     @Published var configuredPrinters: [Printer] = []
     @Published var selectedPrinter: Printer?
     @Published var printerBeingEdited: Printer?

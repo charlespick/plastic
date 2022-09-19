@@ -9,10 +9,6 @@ import Foundation
 
 extension Printer {
     
-    var wsocket: URLSessionWebSocketTask?
-    var nextJSONid = 50
-    var idLookup: [Int: MoonrakerMethod] = [:]
-    
     // Outgoing Controls
     func eStop() {
         sendMoonrakerCommand(method: .printerEmergency_stop)

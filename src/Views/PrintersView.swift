@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PrintersView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
         List {
@@ -46,14 +46,14 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView().environmentObject(PrinterEnv())
+            PrintersView().environmentObject(AppEnv())
         }
     }
 }
 
 struct PrinterCardView: View {
     let printer: Printer
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
         Button( action: {
