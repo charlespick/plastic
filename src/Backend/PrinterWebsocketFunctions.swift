@@ -1,54 +1,27 @@
 //
-//  Printer.swift
+//  PrinterWebsocketFunctions.swift
 //  Plastic
 //
-//  Created by Charles Pickering on 8/11/22.
+//  Created by Charles Pickering on 9/19/22.
 //
 
 import Foundation
 
-class Printer: Identifiable, ObservableObject, Codable {
+extension Printer {
     
-    @Published var name: String
-    @Published var id: UUID
-    @Published var url: String
-    @Published var isConnected = false
-    @Published var isShutdown = false
     var wsocket: URLSessionWebSocketTask?
     var nextJSONid = 50
     var idLookup: [Int: MoonrakerMethod] = [:]
     
-    // Printer Functions
+    // Outgoing Controls
     func eStop() {
         sendMoonrakerCommand(method: .printerEmergency_stop)
-        
     }
-    func printerRestart() {
+    func hostRestart() {
         sendMoonrakerCommand(method: .printerRestart)
     }
-    
-    // Websocket operations
-    func connect(){
-        wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
-        wsocket?.resume()
-        queryStatus()
-        ping()
-        idLookup[nextJSONid] = .serverInfo
-        startReceive()
-    }
-    func sendMoonrakerCommand(method: MoonrakerMethod){
-        var payload = Data()
-        do {
-            payload = try JSONEncoder().encode(JsonRPCRequest(method: method.rawValue, id: nextJSONid))
-            idLookup[nextJSONid] = method
-            nextJSONid += 1
-        }
-        catch {}
-        wsocket?.send(.data(payload)) { error in
-            if error == nil{
-                print(error as Any)
-            }
-        }
+    func firmwareRestart() {
+        sendMoonrakerCommand(method: .printerFirmware_restart)
     }
     func queryStatus(){
         Task {
@@ -58,6 +31,8 @@ class Printer: Identifiable, ObservableObject, Codable {
             self.queryStatus()
         }
     }
+    
+    // Incoming Feedback
     func startReceive() {
         wsocket?.receive() { response in
             switch response {
@@ -134,6 +109,30 @@ class Printer: Identifiable, ObservableObject, Codable {
             self.startReceive()
         } // end of receive closure
     }
+    
+    // Websocket Operations
+    func connect(){
+        wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
+        wsocket?.resume()
+        queryStatus()
+        ping()
+        idLookup[nextJSONid] = .serverInfo
+        startReceive()
+    }
+    func sendMoonrakerCommand(method: MoonrakerMethod){
+        var payload = Data()
+        do {
+            payload = try JSONEncoder().encode(JsonRPCRequest(method: method.rawValue, id: nextJSONid))
+            idLookup[nextJSONid] = method
+            nextJSONid += 1
+        }
+        catch {}
+        wsocket?.send(.data(payload)) { error in
+            if error == nil{
+                print(error as Any)
+            }
+        }
+    }
     func ping(){
         Task {
             try await Task.sleep(nanoseconds: 1_000_000_000)
@@ -144,58 +143,10 @@ class Printer: Identifiable, ObservableObject, Codable {
         }
     }
     
-    // Helpers for: Identifiable
-    static func == (lhs: Printer, rhs: Printer) -> Bool {
-        return(lhs === rhs)
-    }
-    
     // Helpers for Websocket comms
     struct JsonRPCRequest: Encodable {
         let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
         let method: String
         let id: Int
     }
-    
-    // Helpers for persistent storage
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-        case uuid
-    }
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        id = try container.decode(UUID.self, forKey: .uuid)
-        url = try container.decode(String.self, forKey: .url)
-    }
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(id, forKey: .uuid)
-        try container.encode(url, forKey: .url)
-    }
-    
-    // Helpers for instantiation and modification
-    init(id: UUID = UUID(), name: String, url: String){
-        self.name = name
-        self.url = url
-        self.id = id
-    }
-    struct ModifiedData {
-        var name: String = ""
-        var url: String = ""
-    }
-    var modifiedData: ModifiedData {
-        ModifiedData(name: name, url: url)
-    }
-    func update(from data: ModifiedData) {
-        name = data.name
-        url = data.url
-    }
-    init(data: ModifiedData) {
-        id = UUID()
-        name = data.name
-        url = data.url
-    }
 }
-

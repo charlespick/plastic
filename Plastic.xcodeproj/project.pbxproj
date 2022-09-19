@@ -17,6 +17,7 @@
 		4E42235928A5847C003FCD58 /* PrinterEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235828A5847C003FCD58 /* PrinterEnv.swift */; };
 		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
 		4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */; };
+		4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonrakerMessageTypes.swift; sourceTree = "<group>"; };
+		4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterWebsocketFunctions.swift; sourceTree = "<group>"; };
 		4EE5C03528A97CD9006AD343 /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Features.md; path = docs/Features.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,25 +82,23 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		4E26944928A16CD300BBC0AB /* moonraker */ = {
+		4E26944928A16CD300BBC0AB /* Backend */ = {
 			isa = PBXGroup;
 			children = (
 				4E42235328A57E2A003FCD58 /* Printer.swift */,
+				4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */,
 				4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */,
 			);
-			path = moonraker;
+			path = Backend;
 			sourceTree = "<group>";
 		};
 		4E598BB82697AF3700261BE1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4EBCCD3028D8C4FE0092D89E /* Views */,
 				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
-				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
-				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
-				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
-				4E26944928A16CD300BBC0AB /* moonraker */,
+				4E26944928A16CD300BBC0AB /* Backend */,
 				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
-				4E42234F28A4BD85003FCD58 /* DashboardView.swift */,
 				4E42235828A5847C003FCD58 /* PrinterEnv.swift */,
 			);
 			path = src;
@@ -123,6 +123,17 @@
 				4E80961028A0E5A30040288B /* developing.md */,
 			);
 			name = docs;
+			sourceTree = "<group>";
+		};
+		4EBCCD3028D8C4FE0092D89E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
+				4E42234F28A4BD85003FCD58 /* DashboardView.swift */,
+				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
+				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4EF27AD326792C50004B4CC0 /* Frameworks */ = {
@@ -206,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */,
 				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
 				4E42235928A5847C003FCD58 /* PrinterEnv.swift in Sources */,
 				4E42235028A4BD85003FCD58 /* DashboardView.swift in Sources */,
