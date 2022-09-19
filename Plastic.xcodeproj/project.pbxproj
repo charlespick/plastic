@@ -16,6 +16,7 @@
 		4E42235428A57E2A003FCD58 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235328A57E2A003FCD58 /* Printer.swift */; };
 		4E42235928A5847C003FCD58 /* PrinterEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235828A5847C003FCD58 /* PrinterEnv.swift */; };
 		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
+		4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
 		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonrakerMessageTypes.swift; sourceTree = "<group>"; };
 		4EE5C03528A97CD9006AD343 /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Features.md; path = docs/Features.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				4E42235328A57E2A003FCD58 /* Printer.swift */,
+				4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */,
 			);
 			path = moonraker;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */,
 				4E42235428A57E2A003FCD58 /* Printer.swift in Sources */,
 				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
+				4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */,
 				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
