@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PrinterEditView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
         Form {
@@ -33,6 +33,6 @@ struct PrinterEditView: View {
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView().environmentObject(PrinterEnv())
+        PrinterEditView().environmentObject(AppEnv())
     }
 }

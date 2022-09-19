@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     @ObservedObject var selectedPrinter: Printer
     
     var body: some View {
@@ -36,14 +36,14 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).environmentObject(PrinterEnv())
-            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
+            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).environmentObject(AppEnv())
+            MainView(selectedPrinter: Printer(name: "Test Printer", url: "")).previewDevice("iPhone SE (3rd generation)").environmentObject(AppEnv())
         }
     }
 }
 
 struct EditSheetView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
 
     var body: some View {
         NavigationView {

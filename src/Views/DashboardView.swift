@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReadyDashboardView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
 
     var body: some View {
         VStack {
@@ -24,7 +24,7 @@ struct ReadyDashboardView: View {
 }
 
 struct DisconnectedDashboardView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
         VStack {
@@ -39,14 +39,13 @@ struct DisconnectedDashboardView: View {
 }
 
 struct ShutdownDashboardView: View {
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     var body: some View {
         VStack {
             StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
             Spacer()
             Button("Restart") {
-                env.selectedPrinter?.printerRestart()
-                env.selectedPrinter?.connect()
+                env.selectedPrinter?.hostRestart()
             }
             Spacer()
 
@@ -57,10 +56,10 @@ struct ShutdownDashboardView: View {
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DisconnectedDashboardView().environmentObject(PrinterEnv())
-            ReadyDashboardView().environmentObject(PrinterEnv())
-            ReadyDashboardView().previewDevice("iPhone 8").environmentObject(PrinterEnv())
-            ReadyDashboardView().previewDevice("iPhone SE (3rd generation)").environmentObject(PrinterEnv())
+            DisconnectedDashboardView().environmentObject(AppEnv())
+            ReadyDashboardView().environmentObject(AppEnv())
+            ReadyDashboardView().previewDevice("iPhone 8").environmentObject(AppEnv())
+            ReadyDashboardView().previewDevice("iPhone SE (3rd generation)").environmentObject(AppEnv())
         }
     }
 }
@@ -70,7 +69,7 @@ struct JoggingControlsView: View {
     let width = 60.0
     @State var moveSpeed: CGFloat = 10
     @State var moveDist: CGFloat = 10
-    @EnvironmentObject var env: PrinterEnv
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
         VStack {
