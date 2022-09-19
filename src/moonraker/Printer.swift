@@ -31,7 +31,7 @@ class Printer: Identifiable, ObservableObject, Codable {
     func connect(){
         wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
         wsocket?.resume()
-        //queryStatus()
+        queryStatus()
         ping()
         idLookup[nextJSONid] = .serverInfo
         startReceive()
@@ -53,7 +53,8 @@ class Printer: Identifiable, ObservableObject, Codable {
     func queryStatus(){
         Task {
             self.sendMoonrakerCommand(method: .printerInfo)
-            try await Task.sleep(nanoseconds:10_000_000_000)
+            self.sendMoonrakerCommand(method: .serverInfo)
+            try await Task.sleep(nanoseconds:1_000_000_000)
             self.queryStatus()
         }
     }
@@ -69,7 +70,6 @@ class Printer: Identifiable, ObservableObject, Codable {
             
             case .success(let message):
                 switch message {
-                    
                 case .data(_):
                     print("expected string from websocket")
                     DispatchQueue.main.async {
@@ -77,7 +77,6 @@ class Printer: Identifiable, ObservableObject, Codable {
                     }
                     
                 case .string(let string):
-                    print(string)
                     let data = string.data(using: .utf8)
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
@@ -92,26 +91,35 @@ class Printer: Identifiable, ObservableObject, Codable {
                                         self.isShutdown = true
                                     }
                                 case .printerInfo:
-                                    self.isShutdown = (result!["klippy_state"] as? String == "shutdown")
+                                    print("got printer info")
                                 case .none:
                                     print("no method registered")
                                 case .some(.printerRestart):
                                     print("printer restarted")
                                 case .some(.printerFirmware_restart):
                                     print("printer firmware restarted")
-                                case .some(.serverInfo):
-                                    print(result as Any)
+                                case .serverInfo:
+                                    DispatchQueue.main.async {
+                                        self.isShutdown = (result!["klippy_state"] as? String != "ready")
+                                    }
+                                    print("received server info")
                                 } // switch (id)
+                                DispatchQueue.main.async {
+                                    self.isConnected = true
+                                }
                             } // if let id = json...
                             
                             // If we receive a method string, it is a method.
                             if let method = json["method"] as? String {
                                 switch (method) {
                                 case "notify_proc_stat_update":
-                                    print(json["params"]!)
+                                    print("received notify_proc_stat_update")
                                 default:
                                     print("other unused method received")
                                 } // switch (method)...
+                                DispatchQueue.main.async {
+                                    self.isConnected = true
+                                }
                             } // if let method = json...
                         } // if let json = try...
                     } catch {
