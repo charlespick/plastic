@@ -15,6 +15,7 @@ class Printer: Identifiable, ObservableObject, Codable {
     
     @Published var isConnected = false
     @Published var isShutdown = false
+    @Published var shutdownMessage = ""
     
     var wsocket: URLSessionWebSocketTask?
     var nextJSONid = 50

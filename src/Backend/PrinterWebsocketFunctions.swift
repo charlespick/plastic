@@ -9,7 +9,7 @@ import Foundation
 
 extension Printer {
     
-    // Outgoing Controls
+    // Outgoing Controls (without params)
     func eStop() {
         sendMoonrakerCommand(method: .printerEmergency_stop)
     }
@@ -26,6 +26,48 @@ extension Printer {
             try await Task.sleep(nanoseconds:1_000_000_000)
             self.queryStatus()
         }
+    }
+    func sendMoonrakerCommand(method: MoonrakerMethod){
+        var payload = Data()
+        do {
+            payload = try JSONEncoder().encode(ParamlessJsonRPCRequest(method: method.rawValue, id: nextJSONid))
+            idLookup[nextJSONid] = method
+            nextJSONid += 1
+        }
+        catch {}
+        wsocket?.send(.data(payload)) { error in
+            if error != nil{
+                print(error as Any)
+            }
+        }
+    }
+    struct ParamlessJsonRPCRequest: Encodable {
+        let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
+        let method: String
+        let id: Int
+    }
+    
+    // Outgoing Controls (which need params)
+    func klipperServiceRestart(){
+        var payload = Data()
+        struct JsonRPCRequest: Encodable {
+            let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
+            let method: String
+            let id: Int
+            let params: [String: String]
+        }
+        do {
+            payload = try JSONEncoder().encode(JsonRPCRequest(method: MoonrakerMethod.serviceKlipperRestart.rawValue, id: nextJSONid, params: ["service" : "klipper"]))
+            idLookup[nextJSONid] = .serviceKlipperRestart
+            nextJSONid+=1
+        } catch {}
+        wsocket?.send(.data(payload)) { error in
+            if error != nil{
+                print(error as Any)
+            }
+        }
+        
+        
     }
     
     // Incoming Feedback
@@ -62,7 +104,13 @@ extension Printer {
                                         self.isShutdown = true
                                     }
                                 case .printerInfo:
-                                    print("got printer info")
+                                    print("printerinfo")
+                                    DispatchQueue.main.async {
+                                        if (result != nil){
+                                            self.shutdownMessage = result?["state_message"] as! String
+                                        }
+                                    }
+                                    print(result)
                                 case .none:
                                     print("no method registered")
                                 case .some(.printerRestart):
@@ -73,7 +121,10 @@ extension Printer {
                                     DispatchQueue.main.async {
                                         self.isShutdown = (result!["klippy_state"] as? String != "ready")
                                     }
-                                    print("received server info")
+                                    print("serverinfo")
+                                    print(result)
+                                case .serviceKlipperRestart:
+                                    print("restart scheduled")
                                 } // switch (id)
                                 DispatchQueue.main.async {
                                     self.isConnected = true
@@ -115,20 +166,7 @@ extension Printer {
         idLookup[nextJSONid] = .serverInfo
         startReceive()
     }
-    func sendMoonrakerCommand(method: MoonrakerMethod){
-        var payload = Data()
-        do {
-            payload = try JSONEncoder().encode(JsonRPCRequest(method: method.rawValue, id: nextJSONid))
-            idLookup[nextJSONid] = method
-            nextJSONid += 1
-        }
-        catch {}
-        wsocket?.send(.data(payload)) { error in
-            if error == nil{
-                print(error as Any)
-            }
-        }
-    }
+    
     func ping(){
         Task {
             try await Task.sleep(nanoseconds: 1_000_000_000)
@@ -140,9 +178,5 @@ extension Printer {
     }
     
     // Helpers for Websocket comms
-    struct JsonRPCRequest: Encodable {
-        let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
-        let method: String
-        let id: Int
-    }
+    
 }

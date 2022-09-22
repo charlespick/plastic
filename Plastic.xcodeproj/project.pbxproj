@@ -12,9 +12,13 @@
 		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
 		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
 		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
-		4E42235028A4BD85003FCD58 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42234F28A4BD85003FCD58 /* DashboardView.swift */; };
+		4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */; };
 		4E42235428A57E2A003FCD58 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235328A57E2A003FCD58 /* Printer.swift */; };
 		4E42235928A5847C003FCD58 /* AppEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235828A5847C003FCD58 /* AppEnv.swift */; };
+		4EA2BB6C28D8E9F100EED8E1 /* ReadyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */; };
+		4EA2BB6E28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */; };
+		4EA2BB7028D8EA2F00EED8E1 /* ShutdownDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */; };
+		4EA2BB7328D8EAE400EED8E1 /* PrintingDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */; };
 		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
 		4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */; };
 		4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */; };
@@ -28,7 +32,7 @@
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
-		4E42234F28A4BD85003FCD58 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDashboardViews.swift; sourceTree = "<group>"; };
 		4E42235328A57E2A003FCD58 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		4E42235828A5847C003FCD58 /* AppEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnv.swift; sourceTree = "<group>"; };
 		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
 		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
 		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyDashboardView.swift; sourceTree = "<group>"; };
+		4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedDashboardView.swift; sourceTree = "<group>"; };
+		4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutdownDashboardView.swift; sourceTree = "<group>"; };
+		4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintingDashboardView.swift; sourceTree = "<group>"; };
 		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonrakerMessageTypes.swift; sourceTree = "<group>"; };
 		4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterWebsocketFunctions.swift; sourceTree = "<group>"; };
@@ -125,11 +133,23 @@
 			name = docs;
 			sourceTree = "<group>";
 		};
+		4EA2BB7128D8EAC500EED8E1 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */,
+				4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */,
+				4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */,
+				4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */,
+				4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		4EBCCD3028D8C4FE0092D89E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4EA2BB7128D8EAC500EED8E1 /* Dashboard */,
 				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
-				4E42234F28A4BD85003FCD58 /* DashboardView.swift */,
 				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
 				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
 			);
@@ -217,15 +237,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA2BB7328D8EAE400EED8E1 /* PrintingDashboardView.swift in Sources */,
 				4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */,
+				4EA2BB6C28D8E9F100EED8E1 /* ReadyDashboardView.swift in Sources */,
+				4EA2BB7028D8EA2F00EED8E1 /* ShutdownDashboardView.swift in Sources */,
 				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
 				4E42235928A5847C003FCD58 /* AppEnv.swift in Sources */,
-				4E42235028A4BD85003FCD58 /* DashboardView.swift in Sources */,
+				4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */,
 				4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */,
 				4E42235428A57E2A003FCD58 /* Printer.swift in Sources */,
 				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
 				4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */,
 				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
+				4EA2BB6E28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
