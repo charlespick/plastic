@@ -13,4 +13,5 @@ enum MoonrakerMethod: String {
     case printerEmergency_stop = "printer.emergency_stop"
     case printerRestart = "printer.restart"
     case printerFirmware_restart = "printer.firmware_restart"
+    case serviceKlipperRestart = "machine.services.restart"
 }
