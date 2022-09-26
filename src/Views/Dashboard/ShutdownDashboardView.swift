@@ -11,27 +11,27 @@ struct ShutdownDashboardView: View {
     @EnvironmentObject var env: AppEnv
     var body: some View {
         VStack {
-            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            StatusBarView()
             ZStack {
                 Rectangle()
                     .cornerRadius(16)
                     .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.95))
-                ShutdownMessageView(selectedPrinter: env.selectedPrinter ?? Printer(name: "", url: "")).padding()
+                ShutdownMessageView().padding()
             }
             .padding()
             
                 
             HStack {
                 Button("Restart Klipper Service") {
-                    env.selectedPrinter?.klipperServiceRestart()
+                    env.configuredPrinters[env.selectedPrinterIndex].klipperServiceRestart()
                 }
                 .buttonStyle(.bordered)
                 Button("Restart Host") {
-                    env.selectedPrinter?.hostRestart()
+                    env.configuredPrinters[env.selectedPrinterIndex].hostRestart()
                 }
                 .buttonStyle(.bordered)
                 Button("Firmware Restart") {
-                    env.selectedPrinter?.firmwareRestart()
+                    env.configuredPrinters[env.selectedPrinterIndex].firmwareRestart()
                 }
                 .buttonStyle(.borderedProminent)
             }.padding()
@@ -49,8 +49,9 @@ struct ShutdownDashboardView_Previews: PreviewProvider {
 }
 
 struct ShutdownMessageView: View {
-    @State var selectedPrinter: Printer
+    @EnvironmentObject var env: AppEnv
+    
     var body: some View {
-        Text(selectedPrinter.shutdownMessage ?? "shutdown message")
+        Text(env.configuredPrinters[env.selectedPrinterIndex].shutdownMessage )
     }
 }

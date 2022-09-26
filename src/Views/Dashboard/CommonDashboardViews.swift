@@ -15,19 +15,19 @@ struct DashboardView_Previews: PreviewProvider {
 }
 
 struct StatusBarView: View {
-    @ObservedObject var selectedPrinter: Printer
+    @EnvironmentObject var env: AppEnv
     
     var body: some View {
-        var isReady = selectedPrinter.isConnected && !selectedPrinter.isShutdown
+        var isReady = env.configuredPrinters[env.selectedPrinterIndex].isConnected && !env.configuredPrinters[env.selectedPrinterIndex].isShutdown
         
         HStack {
             Spacer()
             VStack {
-                Text(selectedPrinter.name ).font(.caption)
-                if (!selectedPrinter.isConnected) {
+                Text(env.configuredPrinters[env.selectedPrinterIndex].name ).font(.caption)
+                if (!env.configuredPrinters[env.selectedPrinterIndex].isConnected) {
                     Text("Not Connected")
                         .padding(.bottom)
-                } else if (selectedPrinter.isShutdown) {
+                } else if (env.configuredPrinters[env.selectedPrinterIndex].isShutdown) {
                     Text("Printer Shutdown")
                         .padding(.bottom)
                 } else {

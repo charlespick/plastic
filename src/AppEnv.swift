@@ -9,16 +9,14 @@ import Foundation
 
 class AppEnv: ObservableObject {
     @Published var configuredPrinters: [Printer] = []
-    @Published var selectedPrinter: Printer?
+    @Published var selectedPrinterIndex = 0
     @Published var printerBeingEdited: Printer?
     @Published var isPresentingEditSheet = false
     @Published var isInEditMode = false
     @Published var tempData = Printer.ModifiedData()
     
     init() {
-        configuredPrinters.append(contentsOf: [Printer(name: "test", url: "10.7.1.6:7125")])
-        selectedPrinter = configuredPrinters.first
-        selectedPrinter?.connect()
+        configuredPrinters.append(contentsOf: [Printer(name: "test", url: "10.153.81.97:7125")])
     }
     
     private func file() throws -> URL {

@@ -12,10 +12,12 @@ struct DisconnectedDashboardView: View {
     
     var body: some View {
         VStack {
-            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            StatusBarView()
             Spacer()
             Button("Connect") {
-                env.selectedPrinter?.connect()
+                if (env.configuredPrinters[env.selectedPrinterIndex] != nil) {
+                    env.configuredPrinters[env.selectedPrinterIndex].connect()
+                }
             }
             Spacer()
         }

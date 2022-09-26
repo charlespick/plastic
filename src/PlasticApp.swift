@@ -14,7 +14,7 @@ struct PlasticApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            MainView(selectedPrinter: env.configuredPrinters[env.selectedPrinterIndex] ?? Printer(name: "Invalid Printer", url: ""))
             .onAppear {
                 Task {
                     try await env.load()

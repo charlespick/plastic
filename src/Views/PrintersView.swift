@@ -62,13 +62,13 @@ struct PrinterCardView: View {
                 env.tempData = env.printerBeingEdited?.modifiedData ?? Printer.ModifiedData(name: "Error", url: "Error")
                 env.isPresentingEditSheet = true
             } else {
-                env.selectedPrinter = printer
-                env.selectedPrinter?.connect()
+                env.configuredPrinters[env.selectedPrinterIndex] = printer
+                env.configuredPrinters[env.selectedPrinterIndex].connect()
             }})
         {
             HStack{
                 if (!env.isInEditMode){
-                    if (printer == env.selectedPrinter ?? Printer(name: "not a printer", url: "invalidURL")) {
+                    if (printer == env.configuredPrinters[env.selectedPrinterIndex] ?? Printer(name: "not a printer", url: "invalidURL")) {
                         Image(systemName: "checkmark.circle.fill")
                     } else {
                         Image(systemName: "circle")

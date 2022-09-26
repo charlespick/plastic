@@ -12,7 +12,7 @@ struct ReadyDashboardView: View {
 
     var body: some View {
         VStack {
-            StatusBarView(selectedPrinter: env.selectedPrinter ?? Printer(name: "Invalid Printer", url: ""))
+            StatusBarView()
             ToolheadView()
             Divider()
             TemperatureButtonView().padding(.horizontal)
@@ -35,7 +35,7 @@ struct JoggingControlsView: View {
             VStack{
                 HStack{
                     JogButtonView(systemName: "ellipsis", prominent: false) {
-                        env.selectedPrinter?.eStop()
+                        env.configuredPrinters[env.selectedPrinterIndex].eStop()
                     }
                     JogButtonView(systemName: "arrow.up.circle", prominent: true, action: {})
                     JogButtonView(systemName: "house", prominent: false, action: {})
