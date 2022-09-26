@@ -10,16 +10,16 @@ import Foundation
 extension Printer {
     
     // Outgoing Controls (without params)
-    func eStop() {
+    mutating func eStop() {
         sendMoonrakerCommand(method: .printerEmergency_stop)
     }
-    func hostRestart() {
+    mutating func hostRestart() {
         sendMoonrakerCommand(method: .printerRestart)
     }
-    func firmwareRestart() {
+    mutating func firmwareRestart() {
         sendMoonrakerCommand(method: .printerFirmware_restart)
     }
-    func queryStatus(){
+    mutating func queryStatus(){
         Task {
             self.sendMoonrakerCommand(method: .printerInfo)
             self.sendMoonrakerCommand(method: .serverInfo)
@@ -27,7 +27,7 @@ extension Printer {
             self.queryStatus()
         }
     }
-    func sendMoonrakerCommand(method: MoonrakerMethod){
+    mutating func sendMoonrakerCommand(method: MoonrakerMethod){
         var payload = Data()
         do {
             payload = try JSONEncoder().encode(ParamlessJsonRPCRequest(method: method.rawValue, id: nextJSONid))
