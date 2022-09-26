@@ -42,39 +42,4 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-struct EditSheetView: View {
-    @EnvironmentObject var env: AppEnv
-
-    var body: some View {
-        NavigationView {
-            PrinterEditView()
-            .toolbar() {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        env.isPresentingEditSheet = false
-                        env.tempData = Printer.ModifiedData()
-                    }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        if (env.tempData.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
-                            
-                            return
-                        }
-                        env.isPresentingEditSheet = false
-                        if (env.isInEditMode){
-                            env.printerBeingEdited = Printer(data: env.tempData)
-                            env.isInEditMode = false
-                        } else {
-                            env.configuredPrinters.append(Printer(data: env.tempData))
-                            env.tempData = Printer.ModifiedData()
-                        }
-                        
-                    }
-                }
-            }
-            .navigationTitle(env.isInEditMode ? "Edit Printer":"Add Printer")
-        }
-    }
-}
 
