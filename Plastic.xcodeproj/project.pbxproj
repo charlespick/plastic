@@ -10,6 +10,7 @@
 		4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF78267874D9002BE169 /* PlasticApp.swift */; };
 		4E0EBFAA267874DA002BE169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EBF7B267874DA002BE169 /* Assets.xcassets */; };
 		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
+		4E23CAD528DFDFAC007A3C95 /* EditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23CAD428DFDFAC007A3C95 /* EditSheetView.swift */; };
 		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
 		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
 		4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */; };
@@ -30,6 +31,7 @@
 		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EBF94267874DA002BE169 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E23CAD428DFDFAC007A3C95 /* EditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSheetView.swift; sourceTree = "<group>"; };
 		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
 		4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDashboardViews.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
 				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
 				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
+				4E23CAD428DFDFAC007A3C95 /* EditSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */,
 				4EA2BB6C28D8E9F100EED8E1 /* ReadyDashboardView.swift in Sources */,
 				4EA2BB7028D8EA2F00EED8E1 /* ShutdownDashboardView.swift in Sources */,
+				4E23CAD528DFDFAC007A3C95 /* EditSheetView.swift in Sources */,
 				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
 				4E42235928A5847C003FCD58 /* AppEnv.swift in Sources */,
 				4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */,
