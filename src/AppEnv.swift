@@ -11,7 +11,6 @@ class AppEnv: ObservableObject {
     @Published var configuredPrinters: [Printer] = []
     @Published var selectedPrinterIndex = 0
     @Published var printerBeingEdited: Printer?
-    @Published var isPresentingEditSheet = false
     @Published var isInEditMode = false
     @Published var tempData = Printer.ModifiedData()
     

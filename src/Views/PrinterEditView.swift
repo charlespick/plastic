@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PrinterEditView: View {
     @EnvironmentObject var env: AppEnv
+    var closer: () -> Void
     
     var body: some View {
         Form {
@@ -20,11 +21,11 @@ struct PrinterEditView: View {
             if (env.isInEditMode) {
                 Button("Delete Printer", role: .destructive) {
                     for (index, printer) in env.configuredPrinters.enumerated() {
-                            if (printer === env.printerBeingEdited){
+                            if (printer == env.printerBeingEdited){
                             env.configuredPrinters.remove(at: index)
                         }
                     }
-                    env.isPresentingEditSheet = false
+                    closer()
                 }
             }
         }
@@ -33,6 +34,6 @@ struct PrinterEditView: View {
 
 struct PrinterEditView_Previews: PreviewProvider {
     static var previews: some View {
-        PrinterEditView().environmentObject(AppEnv())
+        PrinterEditView(closer: {}).environmentObject(AppEnv())
     }
 }

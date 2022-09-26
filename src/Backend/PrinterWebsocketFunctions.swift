@@ -48,7 +48,7 @@ extension Printer {
     }
     
     // Outgoing Controls (which need params)
-    func klipperServiceRestart(){
+    mutating func klipperServiceRestart(){
         var payload = Data()
         struct JsonRPCRequest: Encodable {
             let jsonrpc = "2.0" //we use a string to override the default json encoding behavior for decimal values.
@@ -71,7 +71,7 @@ extension Printer {
     }
     
     // Incoming Feedback
-    func startReceive() {
+    mutating func startReceive() {
         wsocket?.receive() { response in
             switch response {
                 
@@ -158,7 +158,7 @@ extension Printer {
     }
     
     // Websocket Operations
-    func connect(){
+    mutating func connect(){
         wsocket = URLSession.shared.webSocketTask(with: URL(string: "ws://\( url )/websocket")!)
         wsocket?.resume()
         queryStatus()

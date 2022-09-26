@@ -17,7 +17,7 @@ struct EditSheetView: View {
     
     var body: some View {
         NavigationView {
-            PrinterEditView()
+            PrinterEditView(closer: closer)
             .toolbar() {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
@@ -50,6 +50,6 @@ struct EditSheetView: View {
 
 struct EditSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        EditSheetView()
+        EditSheetView(closer: {})
     }
 }

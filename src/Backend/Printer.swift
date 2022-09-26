@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Printer: Identifiable, Codable {
+struct Printer: Identifiable, Codable, Equatable {
     
     var name: String
     var id: UUID

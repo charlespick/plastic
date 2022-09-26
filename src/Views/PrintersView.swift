@@ -11,11 +11,13 @@ import SwiftUI
 struct PrintersView: View {
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var env: AppEnv
+    var closer: () -> Void
+    var opener: () -> Void
     
     var body: some View {
         List {
             ForEach(env.configuredPrinters) { printer in
-                PrinterCardView(printer: printer)
+                PrinterCardView(printer: printer, closer: closer)
             }
         }
         .navigationTitle("Printers")
@@ -33,7 +35,7 @@ struct PrintersView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
                     env.tempData = Printer.ModifiedData()
-                    env.isPresentingEditSheet = true
+                    opener()
                     env.isInEditMode = false }) { Image(systemName: "plus") }
             }
         }
@@ -46,7 +48,7 @@ struct PrintersView: View {
 struct PrintersView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PrintersView().environmentObject(AppEnv())
+            PrintersView(closer: {}, opener: {}).environmentObject(AppEnv())
         }
     }
 }
@@ -54,13 +56,14 @@ struct PrintersView_Previews: PreviewProvider {
 struct PrinterCardView: View {
     let printer: Printer
     @EnvironmentObject var env: AppEnv
+    var closer: () -> Void
     
     var body: some View {
         Button( action: {
             if (env.isInEditMode) {
                 env.printerBeingEdited = printer
                 env.tempData = env.printerBeingEdited?.modifiedData ?? Printer.ModifiedData(name: "Error", url: "Error")
-                env.isPresentingEditSheet = true
+                closer()
             } else {
                 env.configuredPrinters[env.selectedPrinterIndex] = printer
                 env.configuredPrinters[env.selectedPrinterIndex].connect()
@@ -68,7 +71,7 @@ struct PrinterCardView: View {
         {
             HStack{
                 if (!env.isInEditMode){
-                    if (printer == env.configuredPrinters[env.selectedPrinterIndex] ?? Printer(name: "not a printer", url: "invalidURL")) {
+                    if (printer == env.configuredPrinters[env.selectedPrinterIndex] ) {
                         Image(systemName: "checkmark.circle.fill")
                     } else {
                         Image(systemName: "circle")
