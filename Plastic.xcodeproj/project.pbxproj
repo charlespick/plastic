@@ -3,267 +3,155 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBF78267874D9002BE169 /* PlasticApp.swift */; };
-		4E0EBFAA267874DA002BE169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EBF7B267874DA002BE169 /* Assets.xcassets */; };
-		4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E0EBFD82679166E002BE169 /* Alamofire */; };
-		4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26944C28A1719500BBC0AB /* PrintersView.swift */; };
-		4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */; };
-		4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */; };
-		4E42235428A57E2A003FCD58 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235328A57E2A003FCD58 /* Printer.swift */; };
-		4E42235928A5847C003FCD58 /* AppEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42235828A5847C003FCD58 /* AppEnv.swift */; };
-		4EA2BB6C28D8E9F100EED8E1 /* ReadyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */; };
-		4EA2BB6E28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */; };
-		4EA2BB7028D8EA2F00EED8E1 /* ShutdownDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */; };
-		4EA2BB7328D8EAE400EED8E1 /* PrintingDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */; };
-		4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB7DD9428A466D9003D2B64 /* MainView.swift */; };
-		4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */; };
-		4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */; };
+		4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */; };
+		4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178E28E3FE0F00D2A432 /* ContentView.swift */; };
+		4EE2179128E3FE1000D2A432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE2179028E3FE1000D2A432 /* Assets.xcassets */; };
+		4EE2179428E3FE1000D2A432 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E0EBF78267874D9002BE169 /* PlasticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticApp.swift; sourceTree = "<group>"; };
-		4E0EBF7B267874DA002BE169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4E0EBF80267874DA002BE169 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E0EBF94267874DA002BE169 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
-		4E0EBF96267874DA002BE169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E26944C28A1719500BBC0AB /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
-		4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterEditView.swift; sourceTree = "<group>"; };
-		4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDashboardViews.swift; sourceTree = "<group>"; };
-		4E42235328A57E2A003FCD58 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
-		4E42235828A5847C003FCD58 /* AppEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnv.swift; sourceTree = "<group>"; };
-		4E80961028A0E5A30040288B /* developing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = developing.md; path = docs/developing.md; sourceTree = "<group>"; };
-		4E80961128A0E5A30040288B /* developer-certificate-of-origin */ = {isa = PBXFileReference; lastKnownFileType = text; name = "developer-certificate-of-origin"; path = "docs/developer-certificate-of-origin"; sourceTree = "<group>"; };
-		4E80961228A0E5A30040288B /* code_of_conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = code_of_conduct.md; path = docs/code_of_conduct.md; sourceTree = "<group>"; };
-		4E80961328A0E5A30040288B /* contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = contributing.md; path = docs/contributing.md; sourceTree = "<group>"; };
-		4E80961428A0E5CC0040288B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyDashboardView.swift; sourceTree = "<group>"; };
-		4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedDashboardView.swift; sourceTree = "<group>"; };
-		4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutdownDashboardView.swift; sourceTree = "<group>"; };
-		4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintingDashboardView.swift; sourceTree = "<group>"; };
-		4EB7DD9428A466D9003D2B64 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonrakerMessageTypes.swift; sourceTree = "<group>"; };
-		4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterWebsocketFunctions.swift; sourceTree = "<group>"; };
-		4EE5C03528A97CD9006AD343 /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Features.md; path = docs/Features.md; sourceTree = "<group>"; };
+		4EE2178928E3FE0F00D2A432 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticApp.swift; sourceTree = "<group>"; };
+		4EE2178E28E3FE0F00D2A432 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4EE2179028E3FE1000D2A432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4E0EBF7D267874DA002BE169 /* Frameworks */ = {
+		4EE2178628E3FE0F00D2A432 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E0EBFD92679166E002BE169 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E0EBF70267874D9002BE169 = {
+		4EE2178028E3FE0F00D2A432 = {
 			isa = PBXGroup;
 			children = (
-				4E80960F28A0E5600040288B /* docs */,
-				4E598BB92697AF4600261BE1 /* tests */,
-				4E598BB82697AF3700261BE1 /* src */,
-				4E0EBF81267874DA002BE169 /* Products */,
-				4EF27AD326792C50004B4CC0 /* Frameworks */,
+				4EE2178B28E3FE0F00D2A432 /* Plastic */,
+				4EE2178A28E3FE0F00D2A432 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4E0EBF81267874DA002BE169 /* Products */ = {
+		4EE2178A28E3FE0F00D2A432 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EBF80267874DA002BE169 /* Plastic.app */,
+				4EE2178928E3FE0F00D2A432 /* Plastic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E0EBF93267874DA002BE169 /* Tests iOS */ = {
+		4EE2178B28E3FE0F00D2A432 /* Plastic */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EBF94267874DA002BE169 /* Tests_iOS.swift */,
-				4E0EBF96267874DA002BE169 /* Info.plist */,
+				4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */,
+				4EE2178E28E3FE0F00D2A432 /* ContentView.swift */,
+				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
+				4EE2179228E3FE1000D2A432 /* Preview Content */,
 			);
-			path = "Tests iOS";
+			path = Plastic;
 			sourceTree = "<group>";
 		};
-		4E26944928A16CD300BBC0AB /* Backend */ = {
+		4EE2179228E3FE1000D2A432 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				4E42235328A57E2A003FCD58 /* Printer.swift */,
-				4EBCCD3128D8C5930092D89E /* PrinterWebsocketFunctions.swift */,
-				4EB97D6D28D0CD8E0047F778 /* MoonrakerMessageTypes.swift */,
+				4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */,
 			);
-			path = Backend;
-			sourceTree = "<group>";
-		};
-		4E598BB82697AF3700261BE1 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EBF78267874D9002BE169 /* PlasticApp.swift */,
-				4E42235828A5847C003FCD58 /* AppEnv.swift */,
-				4EBCCD3028D8C4FE0092D89E /* Views */,
-				4E26944928A16CD300BBC0AB /* Backend */,
-				4E0EBF7B267874DA002BE169 /* Assets.xcassets */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		4E598BB92697AF4600261BE1 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EBF93267874DA002BE169 /* Tests iOS */,
-			);
-			path = tests;
-			sourceTree = "<group>";
-		};
-		4E80960F28A0E5600040288B /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				4EE5C03528A97CD9006AD343 /* Features.md */,
-				4E80961428A0E5CC0040288B /* README.md */,
-				4E80961228A0E5A30040288B /* code_of_conduct.md */,
-				4E80961328A0E5A30040288B /* contributing.md */,
-				4E80961128A0E5A30040288B /* developer-certificate-of-origin */,
-				4E80961028A0E5A30040288B /* developing.md */,
-			);
-			name = docs;
-			sourceTree = "<group>";
-		};
-		4EA2BB7128D8EAC500EED8E1 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				4E42234F28A4BD85003FCD58 /* CommonDashboardViews.swift */,
-				4EA2BB6B28D8E9F100EED8E1 /* ReadyDashboardView.swift */,
-				4EA2BB6D28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift */,
-				4EA2BB6F28D8EA2F00EED8E1 /* ShutdownDashboardView.swift */,
-				4EA2BB7228D8EAE400EED8E1 /* PrintingDashboardView.swift */,
-			);
-			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		4EBCCD3028D8C4FE0092D89E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4EA2BB7128D8EAC500EED8E1 /* Dashboard */,
-				4E26944C28A1719500BBC0AB /* PrintersView.swift */,
-				4E26945028A17CBE00BBC0AB /* PrinterEditView.swift */,
-				4EB7DD9428A466D9003D2B64 /* MainView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4EF27AD326792C50004B4CC0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E0EBF7F267874DA002BE169 /* Plastic */ = {
+		4EE2178828E3FE0F00D2A432 /* Plastic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic" */;
+			buildConfigurationList = 4EE2179728E3FE1000D2A432 /* Build configuration list for PBXNativeTarget "Plastic" */;
 			buildPhases = (
-				4E0EBF7C267874DA002BE169 /* Sources */,
-				4E0EBF7D267874DA002BE169 /* Frameworks */,
-				4E0EBF7E267874DA002BE169 /* Resources */,
+				4EE2178528E3FE0F00D2A432 /* Sources */,
+				4EE2178628E3FE0F00D2A432 /* Frameworks */,
+				4EE2178728E3FE0F00D2A432 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Plastic;
-			packageProductDependencies = (
-				4E0EBFD82679166E002BE169 /* Alamofire */,
-			);
-			productName = "Plastic (iOS)";
-			productReference = 4E0EBF80267874DA002BE169 /* Plastic.app */;
+			productName = Plastic;
+			productReference = 4EE2178928E3FE0F00D2A432 /* Plastic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4E0EBF71267874D9002BE169 /* Project object */ = {
+		4EE2178128E3FE0F00D2A432 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1300;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					4E0EBF7F267874DA002BE169 = {
-						CreatedOnToolsVersion = 12.5;
+					4EE2178828E3FE0F00D2A432 = {
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
-			buildConfigurationList = 4E0EBF74267874D9002BE169 /* Build configuration list for PBXProject "plastic" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 4EE2178428E3FE0F00D2A432 /* Build configuration list for PBXProject "Plastic" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 4E0EBF70267874D9002BE169;
-			packageReferences = (
-				4E0EBFD72679166E002BE169 /* XCRemoteSwiftPackageReference "Alamofire" */,
-			);
-			productRefGroup = 4E0EBF81267874DA002BE169 /* Products */;
+			mainGroup = 4EE2178028E3FE0F00D2A432;
+			productRefGroup = 4EE2178A28E3FE0F00D2A432 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E0EBF7F267874DA002BE169 /* Plastic */,
+				4EE2178828E3FE0F00D2A432 /* Plastic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4E0EBF7E267874DA002BE169 /* Resources */ = {
+		4EE2178728E3FE0F00D2A432 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E0EBFAA267874DA002BE169 /* Assets.xcassets in Resources */,
+				4EE2179428E3FE1000D2A432 /* Preview Assets.xcassets in Resources */,
+				4EE2179128E3FE1000D2A432 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4E0EBF7C267874DA002BE169 /* Sources */ = {
+		4EE2178528E3FE0F00D2A432 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EA2BB7328D8EAE400EED8E1 /* PrintingDashboardView.swift in Sources */,
-				4EBCCD3228D8C5930092D89E /* PrinterWebsocketFunctions.swift in Sources */,
-				4EA2BB6C28D8E9F100EED8E1 /* ReadyDashboardView.swift in Sources */,
-				4EA2BB7028D8EA2F00EED8E1 /* ShutdownDashboardView.swift in Sources */,
-				4E0EBFA4267874DA002BE169 /* PlasticApp.swift in Sources */,
-				4E42235928A5847C003FCD58 /* AppEnv.swift in Sources */,
-				4E42235028A4BD85003FCD58 /* CommonDashboardViews.swift in Sources */,
-				4EB7DD9528A466D9003D2B64 /* MainView.swift in Sources */,
-				4E42235428A57E2A003FCD58 /* Printer.swift in Sources */,
-				4E26944D28A1719500BBC0AB /* PrintersView.swift in Sources */,
-				4EB97D6E28D0CD8E0047F778 /* MoonrakerMessageTypes.swift in Sources */,
-				4E26945128A17CBE00BBC0AB /* PrinterEditView.swift in Sources */,
-				4EA2BB6E28D8E9FE00EED8E1 /* DisconnectedDashboardView.swift in Sources */,
+				4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */,
+				4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4E0EBFAC267874DA002BE169 /* Debug */ = {
+		4EE2179528E3FE1000D2A432 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -307,22 +195,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		4E0EBFAD267874DA002BE169 /* Release */ = {
+		4EE2179628E3FE1000D2A432 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -360,115 +249,96 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		4E0EBFAF267874DA002BE169 /* Debug */ = {
+		4EE2179828E3FE1000D2A432 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = dev;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plastic/Preview Content\"";
 				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = dev;
-				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.plastic;
-				PRODUCT_NAME = Plastic;
-				SDKROOT = iphoneos;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.Plastic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4E0EBFB0267874DA002BE169 /* Release */ = {
+		4EE2179928E3FE1000D2A432 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = dev;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plastic/Preview Content\"";
 				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = dev;
-				PRODUCT_BUNDLE_IDENTIFIER = com.charlespick.plastic;
-				PRODUCT_NAME = Plastic;
-				SDKROOT = iphoneos;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.Plastic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E0EBF74267874D9002BE169 /* Build configuration list for PBXProject "plastic" */ = {
+		4EE2178428E3FE0F00D2A432 /* Build configuration list for PBXProject "Plastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E0EBFAC267874DA002BE169 /* Debug */,
-				4E0EBFAD267874DA002BE169 /* Release */,
+				4EE2179528E3FE1000D2A432 /* Debug */,
+				4EE2179628E3FE1000D2A432 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E0EBFAE267874DA002BE169 /* Build configuration list for PBXNativeTarget "Plastic" */ = {
+		4EE2179728E3FE1000D2A432 /* Build configuration list for PBXNativeTarget "Plastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E0EBFAF267874DA002BE169 /* Debug */,
-				4E0EBFB0267874DA002BE169 /* Release */,
+				4EE2179828E3FE1000D2A432 /* Debug */,
+				4EE2179928E3FE1000D2A432 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4E0EBFD72679166E002BE169 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4E0EBFD82679166E002BE169 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4E0EBFD72679166E002BE169 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4E0EBF71267874D9002BE169 /* Project object */;
+	rootObject = 4EE2178128E3FE0F00D2A432 /* Project object */;
 }
