@@ -21,6 +21,10 @@
 		4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */; };
 		4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */; };
 		4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */; };
+		4EE217B128E4BDBB00D2A432 /* DashboardStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */; };
+		4EE217B328E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */; };
+		4EE217B528E4C12400D2A432 /* DashboardJoggingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */; };
+		4EE217B728E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
 		4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersViewModel.swift; sourceTree = "<group>"; };
+		4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarView.swift; sourceTree = "<group>"; };
+		4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarViewModel.swift; sourceTree = "<group>"; };
+		4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsView.swift; sourceTree = "<group>"; };
+		4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,19 +79,9 @@
 		4EE2178B28E3FE0F00D2A432 /* Plastic */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
 				4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */,
-				4EE2178E28E3FE0F00D2A432 /* ContentView.swift */,
-				4EE2179A28E4014F00D2A432 /* DashboardView.swift */,
-				4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */,
-				4EE217A228E4BB5800D2A432 /* FilesView.swift */,
-				4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */,
-				4EE217A628E4BC0200D2A432 /* HistoryView.swift */,
-				4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */,
-				4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */,
-				4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */,
-				4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */,
-				4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */,
+				4EE217B928E4C97800D2A432 /* Root Views */,
+				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
 				4EE2179228E3FE1000D2A432 /* Preview Content */,
 			);
 			path = Plastic;
@@ -95,6 +93,44 @@
 				4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4EE217AE28E4BD6C00D2A432 /* Primary Views */ = {
+			isa = PBXGroup;
+			children = (
+				4EE2179A28E4014F00D2A432 /* DashboardView.swift */,
+				4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */,
+				4EE217AF28E4BD8500D2A432 /* Dashboard Sub Views */,
+				4EE217A228E4BB5800D2A432 /* FilesView.swift */,
+				4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */,
+				4EE217A628E4BC0200D2A432 /* HistoryView.swift */,
+				4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */,
+				4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */,
+				4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */,
+				4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */,
+				4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */,
+			);
+			path = "Primary Views";
+			sourceTree = "<group>";
+		};
+		4EE217AF28E4BD8500D2A432 /* Dashboard Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */,
+				4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */,
+				4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */,
+				4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */,
+			);
+			path = "Dashboard Sub Views";
+			sourceTree = "<group>";
+		};
+		4EE217B928E4C97800D2A432 /* Root Views */ = {
+			isa = PBXGroup;
+			children = (
+				4EE2178E28E3FE0F00D2A432 /* ContentView.swift */,
+				4EE217AE28E4BD6C00D2A432 /* Primary Views */,
+			);
+			path = "Root Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,17 +204,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */,
+				4EE217B328E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift in Sources */,
 				4EE217A128E4022E00D2A432 /* MachineSettingsView.swift in Sources */,
 				4EE2179D28E4015500D2A432 /* DashboardViewModel.swift in Sources */,
 				4EE2179B28E4014F00D2A432 /* DashboardView.swift in Sources */,
 				4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */,
 				4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */,
+				4EE217B128E4BDBB00D2A432 /* DashboardStatusBarView.swift in Sources */,
+				4EE217B528E4C12400D2A432 /* DashboardJoggingControlsView.swift in Sources */,
 				4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */,
 				4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */,
 				4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */,
 				4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */,
 				4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */,
 				4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */,
+				4EE217B728E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
