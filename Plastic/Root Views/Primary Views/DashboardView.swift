@@ -17,7 +17,10 @@ struct DashboardView: View {
                 Image("ExampleWebcam")
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: UIScreen.main.bounds.width, idealHeight: 300)
+                    
+                    
+                    .clipped()
                 DashboardJoggingControlsView(viewModel: .init())
                 Text("Extruder Controls")
                 Text("Temps")
