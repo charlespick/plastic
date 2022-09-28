@@ -11,7 +11,14 @@ struct MachineSettingsView: View {
     @StateObject var viewModel: MachineSettingsViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Hello, Machine Settings!")
+            Text("Machine Limits")
+            Text("fds Settings!")
+            Text("Heightmap settings")
+            Text("Enter Console button")
+            Text("Open in Safari Button")
+        }
     }
 }
 

@@ -12,9 +12,9 @@ struct ContentView: View {
         TabView {
             DashboardView(viewModel: .init()).tabItem { Label("Dashboard", systemImage: "desktopcomputer") }
             MachineSettingsView(viewModel: .init()).tabItem { Label("Machine Settings", systemImage: "gearshape.2") }
-            Text("Files").tabItem { Label("Files", systemImage: "folder") }
-            Text("History").tabItem { Label("History", systemImage: "clock.arrow.circlepath") }
-            Text("Printers").tabItem { Label("Printers", systemImage: "printer") }
+            FilesView(viewModel: .init()).tabItem { Label("Files", systemImage: "folder") }
+            HistoryView(viewModel: .init()).tabItem { Label("History", systemImage: "clock.arrow.circlepath") }
+            PrintersView(viewModel: .init()).tabItem { Label("Printers", systemImage: "printer") }
         }
     }
 }

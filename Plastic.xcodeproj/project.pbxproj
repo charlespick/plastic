@@ -15,6 +15,12 @@
 		4EE2179D28E4015500D2A432 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */; };
 		4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */; };
 		4EE217A128E4022E00D2A432 /* MachineSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */; };
+		4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A228E4BB5800D2A432 /* FilesView.swift */; };
+		4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */; };
+		4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A628E4BC0200D2A432 /* HistoryView.swift */; };
+		4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */; };
+		4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */; };
+		4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineSettingsViewModel.swift; sourceTree = "<group>"; };
 		4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineSettingsView.swift; sourceTree = "<group>"; };
+		4EE217A228E4BB5800D2A432 /* FilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesView.swift; sourceTree = "<group>"; };
+		4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewModel.swift; sourceTree = "<group>"; };
+		4EE217A628E4BC0200D2A432 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
+		4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +71,19 @@
 		4EE2178B28E3FE0F00D2A432 /* Plastic */ = {
 			isa = PBXGroup;
 			children = (
+				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
 				4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */,
 				4EE2178E28E3FE0F00D2A432 /* ContentView.swift */,
-				4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */,
-				4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */,
 				4EE2179A28E4014F00D2A432 /* DashboardView.swift */,
 				4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */,
-				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
+				4EE217A228E4BB5800D2A432 /* FilesView.swift */,
+				4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */,
+				4EE217A628E4BC0200D2A432 /* HistoryView.swift */,
+				4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */,
+				4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */,
+				4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */,
+				4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */,
+				4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */,
 				4EE2179228E3FE1000D2A432 /* Preview Content */,
 			);
 			path = Plastic;
@@ -154,7 +172,13 @@
 				4EE2179D28E4015500D2A432 /* DashboardViewModel.swift in Sources */,
 				4EE2179B28E4014F00D2A432 /* DashboardView.swift in Sources */,
 				4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */,
+				4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */,
+				4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */,
+				4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */,
 				4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */,
+				4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */,
+				4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */,
+				4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

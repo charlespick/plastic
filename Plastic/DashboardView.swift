@@ -11,7 +11,18 @@ struct DashboardView: View {
     @StateObject var viewModel: DashboardViewModel
     
     var body: some View {
-        Text("Hello, Dashboard!!")
+        VStack {
+            Text("Hello, Dashboard!!")
+            Text("Status Bar (always on top)")
+            Text("Cameras (if any)")
+            Text("Jogging Controls")
+            Text("Extruder Controls")
+            Text("Temps")
+            Text("Misc controls")
+            Text("Macros")
+
+            
+        }
     }
 }
 
