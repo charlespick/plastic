@@ -20,8 +20,7 @@ struct DashboardJoggingControlsView: View {
                 .padding(.horizontal)
             ToolheadValueSliderView(name: "Distance")
                 .padding(.horizontal)
-            Text("sliders")
-        }
+        }.background(.white)
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E47644F28E4F22300DD967C /* DashboardExtruderControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */; };
+		4E47645128E4F23600DD967C /* DashboardExtruderControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */; };
 		4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */; };
 		4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178E28E3FE0F00D2A432 /* ContentView.swift */; };
 		4EE2179128E3FE1000D2A432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE2179028E3FE1000D2A432 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsView.swift; sourceTree = "<group>"; };
+		4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsViewModel.swift; sourceTree = "<group>"; };
 		4EE2178928E3FE0F00D2A432 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticApp.swift; sourceTree = "<group>"; };
 		4EE2178E28E3FE0F00D2A432 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */,
 				4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */,
 				4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */,
+				4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */,
+				4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */,
 			);
 			path = "Dashboard Sub Views";
 			sourceTree = "<group>";
@@ -217,7 +223,9 @@
 				4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */,
 				4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */,
 				4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */,
+				4E47644F28E4F22300DD967C /* DashboardExtruderControlsView.swift in Sources */,
 				4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */,
+				4E47645128E4F23600DD967C /* DashboardExtruderControlsViewModel.swift in Sources */,
 				4EE217B728E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
