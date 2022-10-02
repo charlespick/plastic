@@ -7,54 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E47644F28E4F22300DD967C /* DashboardExtruderControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */; };
-		4E47645128E4F23600DD967C /* DashboardExtruderControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */; };
-		4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */; };
-		4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2178E28E3FE0F00D2A432 /* ContentView.swift */; };
-		4EE2179128E3FE1000D2A432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE2179028E3FE1000D2A432 /* Assets.xcassets */; };
-		4EE2179428E3FE1000D2A432 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */; };
-		4EE2179B28E4014F00D2A432 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2179A28E4014F00D2A432 /* DashboardView.swift */; };
-		4EE2179D28E4015500D2A432 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */; };
-		4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */; };
-		4EE217A128E4022E00D2A432 /* MachineSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */; };
-		4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A228E4BB5800D2A432 /* FilesView.swift */; };
-		4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */; };
-		4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A628E4BC0200D2A432 /* HistoryView.swift */; };
-		4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */; };
-		4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */; };
-		4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */; };
-		4EE217B128E4BDBB00D2A432 /* DashboardStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */; };
-		4EE217B328E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */; };
-		4EE217B528E4C12400D2A432 /* DashboardJoggingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */; };
-		4EE217B728E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */; };
+		D1DE3E1E28EA2D4C0033680D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E1D28EA2D4C0033680D /* App.swift */; };
+		D1DE3E2028EA2D4C0033680D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E1F28EA2D4C0033680D /* ContentView.swift */; };
+		D1DE3E2228EA2D4C0033680D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3E2128EA2D4C0033680D /* Assets.xcassets */; };
+		D1DE3E2528EA2D4C0033680D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3E2428EA2D4C0033680D /* Preview Assets.xcassets */; };
+		D1DE3E2F28EA2D4C0033680D /* PlasticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E2E28EA2D4C0033680D /* PlasticTests.swift */; };
+		D1DE3E3928EA2D4C0033680D /* PlasticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E3828EA2D4C0033680D /* PlasticUITests.swift */; };
+		D1DE3E3B28EA2D4C0033680D /* PlasticUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E3A28EA2D4C0033680D /* PlasticUITestsLaunchTests.swift */; };
+		D1DE3E5628EA2DF70033680D /* PrintersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E4C28EA2DF70033680D /* PrintersViewModel.swift */; };
+		D1DE3E5728EA2DF70033680D /* MachineSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E4D28EA2DF70033680D /* MachineSettingsView.swift */; };
+		D1DE3E5828EA2DF70033680D /* FilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E4E28EA2DF70033680D /* FilesView.swift */; };
+		D1DE3E5928EA2DF70033680D /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E4F28EA2DF70033680D /* DashboardViewModel.swift */; };
+		D1DE3E5A28EA2DF70033680D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5028EA2DF70033680D /* DashboardView.swift */; };
+		D1DE3E5B28EA2DF70033680D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5128EA2DF70033680D /* HistoryView.swift */; };
+		D1DE3E5C28EA2DF70033680D /* FilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5228EA2DF70033680D /* FilesViewModel.swift */; };
+		D1DE3E5D28EA2DF70033680D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5328EA2DF70033680D /* HistoryViewModel.swift */; };
+		D1DE3E5E28EA2DF70033680D /* PrintersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5428EA2DF70033680D /* PrintersView.swift */; };
+		D1DE3E5F28EA2DF70033680D /* MachineSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E5528EA2DF70033680D /* MachineSettingsViewModel.swift */; };
+		D1DE3E6628EA2E080033680D /* DashboardExtruderControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6028EA2E080033680D /* DashboardExtruderControlsView.swift */; };
+		D1DE3E6728EA2E080033680D /* DashboardExtruderControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6128EA2E080033680D /* DashboardExtruderControlsViewModel.swift */; };
+		D1DE3E6828EA2E080033680D /* DashboardJoggingControlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6228EA2E080033680D /* DashboardJoggingControlsViewModel.swift */; };
+		D1DE3E6928EA2E080033680D /* DashboardJoggingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6328EA2E080033680D /* DashboardJoggingControlsView.swift */; };
+		D1DE3E6A28EA2E080033680D /* DashboardStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6428EA2E080033680D /* DashboardStatusBarView.swift */; };
+		D1DE3E6B28EA2E080033680D /* DashboardStatusBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE3E6528EA2E080033680D /* DashboardStatusBarViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D1DE3E2B28EA2D4C0033680D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1DE3E1228EA2D4C0033680D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1DE3E1928EA2D4C0033680D;
+			remoteInfo = Plastic;
+		};
+		D1DE3E3528EA2D4C0033680D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1DE3E1228EA2D4C0033680D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1DE3E1928EA2D4C0033680D;
+			remoteInfo = Plastic;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsView.swift; sourceTree = "<group>"; };
-		4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsViewModel.swift; sourceTree = "<group>"; };
-		4EE2178928E3FE0F00D2A432 /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticApp.swift; sourceTree = "<group>"; };
-		4EE2178E28E3FE0F00D2A432 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4EE2179028E3FE1000D2A432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4EE2179A28E4014F00D2A432 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineSettingsViewModel.swift; sourceTree = "<group>"; };
-		4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineSettingsView.swift; sourceTree = "<group>"; };
-		4EE217A228E4BB5800D2A432 /* FilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesView.swift; sourceTree = "<group>"; };
-		4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewModel.swift; sourceTree = "<group>"; };
-		4EE217A628E4BC0200D2A432 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
-		4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintersViewModel.swift; sourceTree = "<group>"; };
-		4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarView.swift; sourceTree = "<group>"; };
-		4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarViewModel.swift; sourceTree = "<group>"; };
-		4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsView.swift; sourceTree = "<group>"; };
-		4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E1A28EA2D4C0033680D /* Plastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1DE3E1D28EA2D4C0033680D /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D1DE3E1F28EA2D4C0033680D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D1DE3E2128EA2D4C0033680D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1DE3E2428EA2D4C0033680D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D1DE3E2A28EA2D4C0033680D /* PlasticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlasticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1DE3E2E28EA2D4C0033680D /* PlasticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticTests.swift; sourceTree = "<group>"; };
+		D1DE3E3428EA2D4C0033680D /* PlasticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlasticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1DE3E3828EA2D4C0033680D /* PlasticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticUITests.swift; sourceTree = "<group>"; };
+		D1DE3E3A28EA2D4C0033680D /* PlasticUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D1DE3E4C28EA2DF70033680D /* PrintersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintersViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E4D28EA2DF70033680D /* MachineSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineSettingsView.swift; sourceTree = "<group>"; };
+		D1DE3E4E28EA2DF70033680D /* FilesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesView.swift; sourceTree = "<group>"; };
+		D1DE3E4F28EA2DF70033680D /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E5028EA2DF70033680D /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		D1DE3E5128EA2DF70033680D /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D1DE3E5228EA2DF70033680D /* FilesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E5328EA2DF70033680D /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E5428EA2DF70033680D /* PrintersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintersView.swift; sourceTree = "<group>"; };
+		D1DE3E5528EA2DF70033680D /* MachineSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineSettingsViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E6028EA2E080033680D /* DashboardExtruderControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsView.swift; sourceTree = "<group>"; };
+		D1DE3E6128EA2E080033680D /* DashboardExtruderControlsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardExtruderControlsViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E6228EA2E080033680D /* DashboardJoggingControlsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsViewModel.swift; sourceTree = "<group>"; };
+		D1DE3E6328EA2E080033680D /* DashboardJoggingControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardJoggingControlsView.swift; sourceTree = "<group>"; };
+		D1DE3E6428EA2E080033680D /* DashboardStatusBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarView.swift; sourceTree = "<group>"; };
+		D1DE3E6528EA2E080033680D /* DashboardStatusBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardStatusBarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4EE2178628E3FE0F00D2A432 /* Frameworks */ = {
+		D1DE3E1728EA2D4C0033680D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E2728EA2D4C0033680D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E3128EA2D4C0033680D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,91 +103,128 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EE2178028E3FE0F00D2A432 = {
+		D1DE3E1128EA2D4C0033680D = {
 			isa = PBXGroup;
 			children = (
-				4EE2178B28E3FE0F00D2A432 /* Plastic */,
-				4EE2178A28E3FE0F00D2A432 /* Products */,
+				D1DE3E1C28EA2D4C0033680D /* Plastic */,
+				D1DE3E2D28EA2D4C0033680D /* PlasticTests */,
+				D1DE3E3728EA2D4C0033680D /* PlasticUITests */,
+				D1DE3E1B28EA2D4C0033680D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4EE2178A28E3FE0F00D2A432 /* Products */ = {
+		D1DE3E1B28EA2D4C0033680D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2178928E3FE0F00D2A432 /* Plastic.app */,
+				D1DE3E1A28EA2D4C0033680D /* Plastic.app */,
+				D1DE3E2A28EA2D4C0033680D /* PlasticTests.xctest */,
+				D1DE3E3428EA2D4C0033680D /* PlasticUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4EE2178B28E3FE0F00D2A432 /* Plastic */ = {
+		D1DE3E1C28EA2D4C0033680D /* Plastic */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2178C28E3FE0F00D2A432 /* PlasticApp.swift */,
-				4EE217B928E4C97800D2A432 /* Root Views */,
-				4EE2179028E3FE1000D2A432 /* Assets.xcassets */,
-				4EE2179228E3FE1000D2A432 /* Preview Content */,
+				D1DE3E2328EA2D4C0033680D /* Preview Content */,
+				D1DE3E4728EA2D890033680D /* Resources */,
+				D1DE3E4828EA2D930033680D /* Source */,
 			);
 			path = Plastic;
 			sourceTree = "<group>";
 		};
-		4EE2179228E3FE1000D2A432 /* Preview Content */ = {
+		D1DE3E2328EA2D4C0033680D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2179328E3FE1000D2A432 /* Preview Assets.xcassets */,
+				D1DE3E2428EA2D4C0033680D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4EE217AE28E4BD6C00D2A432 /* Primary Views */ = {
+		D1DE3E2D28EA2D4C0033680D /* PlasticTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2179A28E4014F00D2A432 /* DashboardView.swift */,
-				4EE2179C28E4015500D2A432 /* DashboardViewModel.swift */,
-				4EE217AF28E4BD8500D2A432 /* Dashboard Sub Views */,
-				4EE217A228E4BB5800D2A432 /* FilesView.swift */,
-				4EE217A428E4BB6200D2A432 /* FilesViewModel.swift */,
-				4EE217A628E4BC0200D2A432 /* HistoryView.swift */,
-				4EE217A828E4BC2000D2A432 /* HistoryViewModel.swift */,
-				4EE217A028E4022E00D2A432 /* MachineSettingsView.swift */,
-				4EE2179E28E4021000D2A432 /* MachineSettingsViewModel.swift */,
-				4EE217AA28E4BC5E00D2A432 /* PrintersView.swift */,
-				4EE217AC28E4BC6B00D2A432 /* PrintersViewModel.swift */,
+				D1DE3E2E28EA2D4C0033680D /* PlasticTests.swift */,
 			);
-			path = "Primary Views";
+			path = PlasticTests;
 			sourceTree = "<group>";
 		};
-		4EE217AF28E4BD8500D2A432 /* Dashboard Sub Views */ = {
+		D1DE3E3728EA2D4C0033680D /* PlasticUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4EE217B028E4BDBB00D2A432 /* DashboardStatusBarView.swift */,
-				4EE217B228E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift */,
-				4EE217B428E4C12400D2A432 /* DashboardJoggingControlsView.swift */,
-				4EE217B628E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift */,
-				4E47644E28E4F22300DD967C /* DashboardExtruderControlsView.swift */,
-				4E47645028E4F23600DD967C /* DashboardExtruderControlsViewModel.swift */,
+				D1DE3E3828EA2D4C0033680D /* PlasticUITests.swift */,
+				D1DE3E3A28EA2D4C0033680D /* PlasticUITestsLaunchTests.swift */,
 			);
-			path = "Dashboard Sub Views";
+			path = PlasticUITests;
 			sourceTree = "<group>";
 		};
-		4EE217B928E4C97800D2A432 /* Root Views */ = {
+		D1DE3E4728EA2D890033680D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2178E28E3FE0F00D2A432 /* ContentView.swift */,
-				4EE217AE28E4BD6C00D2A432 /* Primary Views */,
+				D1DE3E2128EA2D4C0033680D /* Assets.xcassets */,
 			);
-			path = "Root Views";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D1DE3E4828EA2D930033680D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D1DE3E4928EA2DD10033680D /* UI */,
+				D1DE3E1D28EA2D4C0033680D /* App.swift */,
+				D1DE3E1F28EA2D4C0033680D /* ContentView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D1DE3E4928EA2DD10033680D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D1DE3E4A28EA2DDB0033680D /* Primary */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D1DE3E4A28EA2DDB0033680D /* Primary */ = {
+			isa = PBXGroup;
+			children = (
+				D1DE3E4B28EA2DE20033680D /* Dashboard */,
+				D1DE3E5028EA2DF70033680D /* DashboardView.swift */,
+				D1DE3E4F28EA2DF70033680D /* DashboardViewModel.swift */,
+				D1DE3E4E28EA2DF70033680D /* FilesView.swift */,
+				D1DE3E5228EA2DF70033680D /* FilesViewModel.swift */,
+				D1DE3E5128EA2DF70033680D /* HistoryView.swift */,
+				D1DE3E5328EA2DF70033680D /* HistoryViewModel.swift */,
+				D1DE3E4D28EA2DF70033680D /* MachineSettingsView.swift */,
+				D1DE3E5528EA2DF70033680D /* MachineSettingsViewModel.swift */,
+				D1DE3E5428EA2DF70033680D /* PrintersView.swift */,
+				D1DE3E4C28EA2DF70033680D /* PrintersViewModel.swift */,
+			);
+			path = Primary;
+			sourceTree = "<group>";
+		};
+		D1DE3E4B28EA2DE20033680D /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D1DE3E6028EA2E080033680D /* DashboardExtruderControlsView.swift */,
+				D1DE3E6128EA2E080033680D /* DashboardExtruderControlsViewModel.swift */,
+				D1DE3E6328EA2E080033680D /* DashboardJoggingControlsView.swift */,
+				D1DE3E6228EA2E080033680D /* DashboardJoggingControlsViewModel.swift */,
+				D1DE3E6428EA2E080033680D /* DashboardStatusBarView.swift */,
+				D1DE3E6528EA2E080033680D /* DashboardStatusBarViewModel.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4EE2178828E3FE0F00D2A432 /* Plastic */ = {
+		D1DE3E1928EA2D4C0033680D /* Plastic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EE2179728E3FE1000D2A432 /* Build configuration list for PBXNativeTarget "Plastic" */;
+			buildConfigurationList = D1DE3E3E28EA2D4C0033680D /* Build configuration list for PBXNativeTarget "Plastic" */;
 			buildPhases = (
-				4EE2178528E3FE0F00D2A432 /* Sources */,
-				4EE2178628E3FE0F00D2A432 /* Frameworks */,
-				4EE2178728E3FE0F00D2A432 /* Resources */,
+				D1DE3E1628EA2D4C0033680D /* Sources */,
+				D1DE3E1728EA2D4C0033680D /* Frameworks */,
+				D1DE3E1828EA2D4C0033680D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -156,25 +232,69 @@
 			);
 			name = Plastic;
 			productName = Plastic;
-			productReference = 4EE2178928E3FE0F00D2A432 /* Plastic.app */;
+			productReference = D1DE3E1A28EA2D4C0033680D /* Plastic.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D1DE3E2928EA2D4C0033680D /* PlasticTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1DE3E4128EA2D4C0033680D /* Build configuration list for PBXNativeTarget "PlasticTests" */;
+			buildPhases = (
+				D1DE3E2628EA2D4C0033680D /* Sources */,
+				D1DE3E2728EA2D4C0033680D /* Frameworks */,
+				D1DE3E2828EA2D4C0033680D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1DE3E2C28EA2D4C0033680D /* PBXTargetDependency */,
+			);
+			name = PlasticTests;
+			productName = PlasticTests;
+			productReference = D1DE3E2A28EA2D4C0033680D /* PlasticTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1DE3E3328EA2D4C0033680D /* PlasticUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1DE3E4428EA2D4C0033680D /* Build configuration list for PBXNativeTarget "PlasticUITests" */;
+			buildPhases = (
+				D1DE3E3028EA2D4C0033680D /* Sources */,
+				D1DE3E3128EA2D4C0033680D /* Frameworks */,
+				D1DE3E3228EA2D4C0033680D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1DE3E3628EA2D4C0033680D /* PBXTargetDependency */,
+			);
+			name = PlasticUITests;
+			productName = PlasticUITests;
+			productReference = D1DE3E3428EA2D4C0033680D /* PlasticUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4EE2178128E3FE0F00D2A432 /* Project object */ = {
+		D1DE3E1228EA2D4C0033680D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					4EE2178828E3FE0F00D2A432 = {
-						CreatedOnToolsVersion = 14.0;
+					D1DE3E1928EA2D4C0033680D = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					D1DE3E2928EA2D4C0033680D = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = D1DE3E1928EA2D4C0033680D;
+					};
+					D1DE3E3328EA2D4C0033680D = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = D1DE3E1928EA2D4C0033680D;
 					};
 				};
 			};
-			buildConfigurationList = 4EE2178428E3FE0F00D2A432 /* Build configuration list for PBXProject "Plastic" */;
+			buildConfigurationList = D1DE3E1528EA2D4C0033680D /* Build configuration list for PBXProject "Plastic" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -182,58 +302,104 @@
 				en,
 				Base,
 			);
-			mainGroup = 4EE2178028E3FE0F00D2A432;
-			productRefGroup = 4EE2178A28E3FE0F00D2A432 /* Products */;
+			mainGroup = D1DE3E1128EA2D4C0033680D;
+			productRefGroup = D1DE3E1B28EA2D4C0033680D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4EE2178828E3FE0F00D2A432 /* Plastic */,
+				D1DE3E1928EA2D4C0033680D /* Plastic */,
+				D1DE3E2928EA2D4C0033680D /* PlasticTests */,
+				D1DE3E3328EA2D4C0033680D /* PlasticUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4EE2178728E3FE0F00D2A432 /* Resources */ = {
+		D1DE3E1828EA2D4C0033680D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EE2179428E3FE1000D2A432 /* Preview Assets.xcassets in Resources */,
-				4EE2179128E3FE1000D2A432 /* Assets.xcassets in Resources */,
+				D1DE3E2528EA2D4C0033680D /* Preview Assets.xcassets in Resources */,
+				D1DE3E2228EA2D4C0033680D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E2828EA2D4C0033680D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E3228EA2D4C0033680D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4EE2178528E3FE0F00D2A432 /* Sources */ = {
+		D1DE3E1628EA2D4C0033680D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EE2178F28E3FE0F00D2A432 /* ContentView.swift in Sources */,
-				4EE217B328E4BDCF00D2A432 /* DashboardStatusBarViewModel.swift in Sources */,
-				4EE217A128E4022E00D2A432 /* MachineSettingsView.swift in Sources */,
-				4EE2179D28E4015500D2A432 /* DashboardViewModel.swift in Sources */,
-				4EE2179B28E4014F00D2A432 /* DashboardView.swift in Sources */,
-				4EE2178D28E3FE0F00D2A432 /* PlasticApp.swift in Sources */,
-				4EE217AD28E4BC6B00D2A432 /* PrintersViewModel.swift in Sources */,
-				4EE217B128E4BDBB00D2A432 /* DashboardStatusBarView.swift in Sources */,
-				4EE217B528E4C12400D2A432 /* DashboardJoggingControlsView.swift in Sources */,
-				4EE217A928E4BC2000D2A432 /* HistoryViewModel.swift in Sources */,
-				4EE217AB28E4BC5E00D2A432 /* PrintersView.swift in Sources */,
-				4EE2179F28E4021000D2A432 /* MachineSettingsViewModel.swift in Sources */,
-				4EE217A528E4BB6200D2A432 /* FilesViewModel.swift in Sources */,
-				4EE217A728E4BC0200D2A432 /* HistoryView.swift in Sources */,
-				4E47644F28E4F22300DD967C /* DashboardExtruderControlsView.swift in Sources */,
-				4EE217A328E4BB5800D2A432 /* FilesView.swift in Sources */,
-				4E47645128E4F23600DD967C /* DashboardExtruderControlsViewModel.swift in Sources */,
-				4EE217B728E4C13400D2A432 /* DashboardJoggingControlsViewModel.swift in Sources */,
+				D1DE3E6728EA2E080033680D /* DashboardExtruderControlsViewModel.swift in Sources */,
+				D1DE3E2028EA2D4C0033680D /* ContentView.swift in Sources */,
+				D1DE3E5B28EA2DF70033680D /* HistoryView.swift in Sources */,
+				D1DE3E6B28EA2E080033680D /* DashboardStatusBarViewModel.swift in Sources */,
+				D1DE3E6828EA2E080033680D /* DashboardJoggingControlsViewModel.swift in Sources */,
+				D1DE3E5728EA2DF70033680D /* MachineSettingsView.swift in Sources */,
+				D1DE3E5F28EA2DF70033680D /* MachineSettingsViewModel.swift in Sources */,
+				D1DE3E5C28EA2DF70033680D /* FilesViewModel.swift in Sources */,
+				D1DE3E1E28EA2D4C0033680D /* App.swift in Sources */,
+				D1DE3E5D28EA2DF70033680D /* HistoryViewModel.swift in Sources */,
+				D1DE3E5E28EA2DF70033680D /* PrintersView.swift in Sources */,
+				D1DE3E5A28EA2DF70033680D /* DashboardView.swift in Sources */,
+				D1DE3E5928EA2DF70033680D /* DashboardViewModel.swift in Sources */,
+				D1DE3E6628EA2E080033680D /* DashboardExtruderControlsView.swift in Sources */,
+				D1DE3E6928EA2E080033680D /* DashboardJoggingControlsView.swift in Sources */,
+				D1DE3E5628EA2DF70033680D /* PrintersViewModel.swift in Sources */,
+				D1DE3E5828EA2DF70033680D /* FilesView.swift in Sources */,
+				D1DE3E6A28EA2E080033680D /* DashboardStatusBarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E2628EA2D4C0033680D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1DE3E2F28EA2D4C0033680D /* PlasticTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1DE3E3028EA2D4C0033680D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1DE3E3928EA2D4C0033680D /* PlasticUITests.swift in Sources */,
+				D1DE3E3B28EA2D4C0033680D /* PlasticUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D1DE3E2C28EA2D4C0033680D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1DE3E1928EA2D4C0033680D /* Plastic */;
+			targetProxy = D1DE3E2B28EA2D4C0033680D /* PBXContainerItemProxy */;
+		};
+		D1DE3E3628EA2D4C0033680D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1DE3E1928EA2D4C0033680D /* Plastic */;
+			targetProxy = D1DE3E3528EA2D4C0033680D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		4EE2179528E3FE1000D2A432 /* Debug */ = {
+		D1DE3E3C28EA2D4C0033680D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -293,7 +459,7 @@
 			};
 			name = Debug;
 		};
-		4EE2179628E3FE1000D2A432 /* Release */ = {
+		D1DE3E3D28EA2D4C0033680D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -347,7 +513,7 @@
 			};
 			name = Release;
 		};
-		4EE2179828E3FE1000D2A432 /* Debug */ = {
+		D1DE3E3F28EA2D4C0033680D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -355,7 +521,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plastic/Preview Content\"";
-				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -376,7 +541,7 @@
 			};
 			name = Debug;
 		};
-		4EE2179928E3FE1000D2A432 /* Release */ = {
+		D1DE3E4028EA2D4C0033680D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -384,7 +549,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plastic/Preview Content\"";
-				DEVELOPMENT_TEAM = RJF7UPKG3M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -405,28 +569,118 @@
 			};
 			name = Release;
 		};
+		D1DE3E4228EA2D4C0033680D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.PlasticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plastic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Plastic";
+			};
+			name = Debug;
+		};
+		D1DE3E4328EA2D4C0033680D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.PlasticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plastic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Plastic";
+			};
+			name = Release;
+		};
+		D1DE3E4528EA2D4C0033680D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.PlasticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Plastic;
+			};
+			name = Debug;
+		};
+		D1DE3E4628EA2D4C0033680D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.makerland.PlasticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Plastic;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4EE2178428E3FE0F00D2A432 /* Build configuration list for PBXProject "Plastic" */ = {
+		D1DE3E1528EA2D4C0033680D /* Build configuration list for PBXProject "Plastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4EE2179528E3FE1000D2A432 /* Debug */,
-				4EE2179628E3FE1000D2A432 /* Release */,
+				D1DE3E3C28EA2D4C0033680D /* Debug */,
+				D1DE3E3D28EA2D4C0033680D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EE2179728E3FE1000D2A432 /* Build configuration list for PBXNativeTarget "Plastic" */ = {
+		D1DE3E3E28EA2D4C0033680D /* Build configuration list for PBXNativeTarget "Plastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4EE2179828E3FE1000D2A432 /* Debug */,
-				4EE2179928E3FE1000D2A432 /* Release */,
+				D1DE3E3F28EA2D4C0033680D /* Debug */,
+				D1DE3E4028EA2D4C0033680D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1DE3E4128EA2D4C0033680D /* Build configuration list for PBXNativeTarget "PlasticTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1DE3E4228EA2D4C0033680D /* Debug */,
+				D1DE3E4328EA2D4C0033680D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1DE3E4428EA2D4C0033680D /* Build configuration list for PBXNativeTarget "PlasticUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1DE3E4528EA2D4C0033680D /* Debug */,
+				D1DE3E4628EA2D4C0033680D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4EE2178128E3FE0F00D2A432 /* Project object */;
+	rootObject = D1DE3E1228EA2D4C0033680D /* Project object */;
 }

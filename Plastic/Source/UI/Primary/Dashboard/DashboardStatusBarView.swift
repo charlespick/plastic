@@ -1,10 +1,3 @@
-//
-//  DashboardStatusBarView.swift
-//  Plastic
-//
-//  Created by Charles Pickering on 9/28/22.
-//
-
 import SwiftUI
 
 struct DashboardStatusBarView: View {
